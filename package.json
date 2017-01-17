@@ -44,6 +44,10 @@
       "browser": true
     }
   },
+  "dependencies": {
+    "object-assign": "4.1.1",
+    "shortid": "2.2.6"
+  },
   "devDependencies": {
     "babel-eslint": "7.1.1",
     "eslint": "3.13.1",
