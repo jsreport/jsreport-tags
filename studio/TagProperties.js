@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
+import ShowColor from './ShowColor'
 
 export default class TagProperties extends Component {
   static title (entity, entities) {
-    return `tag (color: ${entity.color})`
+    return (
+      <span>
+        <span>
+          tag (color: {<ShowColor color={entity.color} width={15} height={15} />})
+        </span>
+      </span>
+    )
   }
 
   render () {

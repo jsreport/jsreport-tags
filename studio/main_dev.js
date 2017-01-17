@@ -9,7 +9,8 @@ Studio.addEntitySet({
   faIcon: 'fa-tag',
   visibleName: 'tag',
   onNew: () => Studio.openModal(NewTagModal),
-  helpUrl: 'http://jsreport.net/learn/tags'
+  helpUrl: 'http://jsreport.net/learn/tags',
+  referenceAttributes: ['color']
 })
 
 Studio.addEditorComponent('tags', TagEditor)

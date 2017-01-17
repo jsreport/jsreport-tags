@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ShowColor from './ShowColor'
 
 const selectValues = (event, atags) => {
   const el = event.target
@@ -22,15 +23,15 @@ const selectValues = (event, atags) => {
 
 export default class EntityTagProperties extends Component {
   static getSelectedTags (entity, entities) {
-    const getName = (t) => {
+    const getNameAndColor = (t) => {
       const foundTags = Object.keys(entities).map((k) => entities[k]).filter((tg) => tg.shortid === t.shortid)
 
-      return foundTags.length ? foundTags[0].name : ''
+      return foundTags.length ? { name: foundTags[0].name, color: foundTags[0].color } : { name: '', color: undefined }
     }
 
     return (entity.tags || []).map((t) => ({
       ...t,
-      name: getName(t)
+      ...getNameAndColor(t)
     }))
   }
 
@@ -39,7 +40,25 @@ export default class EntityTagProperties extends Component {
       return 'tags'
     }
 
-    return `tags: ${EntityTagProperties.getSelectedTags(entity, entities).map((t) => t.name).join(', ')}`
+    return (
+      <span>
+        tags:&nbsp;
+        <span>
+          {
+            EntityTagProperties.getSelectedTags(entity, entities).map((t, tIndex, allSelectTags) => {
+              return (
+                <span key={t.name} style={{ display: 'inline-block', marginRight: '2px' }}>
+                  <ShowColor color={t.color} width={12} height={15} />
+                  &nbsp;
+                  {t.name}
+                  {tIndex === allSelectTags.length - 1 ? '' : ','}
+                </span>
+              )
+            })
+          }
+        </span>
+      </span>
+    )
   }
 
   componentDidMount () {
