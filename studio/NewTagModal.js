@@ -28,13 +28,13 @@ export default class NewTagModal extends Component {
 
     if (!this.refs.name.value) {
       return this.setState({
-        error: 'name cannot be empty'
+        error: 'name field cannot be empty'
       })
     }
 
     if (!this.refs.color.value) {
       return this.setState({
-        error: 'color cannot be empty'
+        error: 'color field cannot be empty'
       })
     }
 
