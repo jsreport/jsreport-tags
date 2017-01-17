@@ -15,9 +15,11 @@ export default class TagEditor extends Component {
           <h1><i className='fa fa-tag' /> {entity.name}</h1>
         </div>
         <div>
-          <div>
-            Color: <ShowColor color={entity.color} />
-          </div>
+          Description: <br />
+          <p>{entity.description || <i>(no description for this tag)</i>}</p>
+        </div>
+        <div>
+          Color: <ShowColor color={entity.color} />
         </div>
       </div>
     )

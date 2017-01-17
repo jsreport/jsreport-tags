@@ -21,7 +21,17 @@ export default class TagProperties extends Component {
           <label>Color</label>
           <input
             type='text' value={entity.color || ''}
-            onChange={(v) => onChange({ _id: entity._id, color: v.target.value })} />
+            onChange={(v) => onChange({ _id: entity._id, color: v.target.value })}
+          />
+        </div>
+        <div className='form-group'>
+          <label>Description</label>
+          <textarea
+            rows='4'
+            style={{ resize: 'vertical' }}
+            value={entity.description || ''}
+            onChange={(v) => onChange({ _id: entity._id, description: v.target.value })}
+          />
         </div>
       </div>
     )

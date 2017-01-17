@@ -40,6 +40,7 @@ export default class NewTagModal extends Component {
 
     entity.name = this.refs.name.value
     entity.color = this.refs.color.value
+    entity.description = this.refs.description.value
 
     try {
       let response = await Studio.api.post('/odata/tags', {
@@ -71,6 +72,16 @@ export default class NewTagModal extends Component {
           <label>Color</label>
           {/* Temporary input for color selection, i will change it with a color picker component */}
           <input type='text' name='color' ref='color' placeholder='#006600' onKeyPress={(e) => this.handleKeyPress(e)} />
+        </div>
+        <div className='form-group'>
+          <label>Description</label>
+          <textarea
+            name='description'
+            ref='description'
+            placeholder='You can add more details about this tag here...'
+            rows='4'
+            style={{ resize: 'vertical' }}
+          />
         </div>
         <div className='form-group'>
           <span
