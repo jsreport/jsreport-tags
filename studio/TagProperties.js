@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ShowColor from './ShowColor'
+import ColorPicketTrigger from './ColorPickerTrigger'
 
 export default class TagProperties extends Component {
   static title (entity, entities) {
@@ -12,17 +13,35 @@ export default class TagProperties extends Component {
     )
   }
 
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      displayColorPicker: false
+    }
+  }
+
   render () {
+    const { displayColorPicker } = this.state
     const { entity, onChange } = this.props
 
     return (
       <div className='properties-section'>
         <div className='form-group'>
           <label>Color</label>
-          <input
-            type='text' value={entity.color || ''}
-            onChange={(v) => onChange({ _id: entity._id, color: v.target.value })}
-          />
+
+          <div>
+            <ColorPicketTrigger
+              displayColorPicker={displayColorPicker}
+              containerStyles={{ border: '1px dashed #000' }}
+              translateXColorPickerFromTrigger='55%'
+              translateYColorPickerFromTrigger='-60%'
+              color={entity.color}
+              onClickColorTrigger={() => this.setState({ displayColorPicker: true })}
+              onCloseColorPicker={() => this.setState({ displayColorPicker: false })}
+              onChangeColor={(colorHex) => onChange({ _id: entity._id, color: colorHex })}
+            />
+          </div>
         </div>
         <div className='form-group'>
           <label>Description</label>

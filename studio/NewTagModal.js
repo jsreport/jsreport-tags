@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import Studio from 'jsreport-studio'
+import ColorPicketTrigger from './ColorPickerTrigger'
 
 export default class NewTagModal extends Component {
   static propTypes = {
@@ -9,7 +10,11 @@ export default class NewTagModal extends Component {
   constructor (props) {
     super(props)
 
-    this.state = { error: null }
+    this.state = {
+      displayColorPicker: false,
+      selectedColor: '',
+      error: null
+    }
   }
 
   // the modal component for some reason after open focuses the panel itself
@@ -32,14 +37,14 @@ export default class NewTagModal extends Component {
       })
     }
 
-    if (!this.refs.color.value) {
+    if (!this.state.selectedColor) {
       return this.setState({
         error: 'color field cannot be empty'
       })
     }
 
     entity.name = this.refs.name.value
-    entity.color = this.refs.color.value
+    entity.color = this.state.selectedColor
     entity.description = this.refs.description.value
 
     try {
@@ -60,7 +65,11 @@ export default class NewTagModal extends Component {
   }
 
   render () {
-    const { error } = this.state
+    const {
+      displayColorPicker,
+      selectedColor,
+      error
+    } = this.state
 
     return (
       <div>
@@ -70,8 +79,17 @@ export default class NewTagModal extends Component {
         </div>
         <div className='form-group'>
           <label>Color</label>
-          {/* Temporary input for color selection, i will change it with a color picker component */}
-          <input type='text' name='color' ref='color' placeholder='#006600' onKeyPress={(e) => this.handleKeyPress(e)} />
+
+          <div>
+            <ColorPicketTrigger
+              displayColorPicker={displayColorPicker}
+              containerStyles={{ border: '1px dashed #000' }}
+              color={selectedColor}
+              onClickColorTrigger={() => this.setState({ displayColorPicker: true })}
+              onCloseColorPicker={() => this.setState({ displayColorPicker: false })}
+              onChangeColor={(colorHex) => this.setState({ selectedColor: colorHex })}
+            />
+          </div>
         </div>
         <div className='form-group'>
           <label>Description</label>

@@ -46,6 +46,7 @@
   },
   "dependencies": {
     "object-assign": "4.1.1",
+    "react-color": "2.11.1",
     "shortid": "2.2.6"
   },
   "devDependencies": {
