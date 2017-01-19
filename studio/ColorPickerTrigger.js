@@ -68,7 +68,6 @@ const ColorPicketTrigger = (props) => {
       >
         <div style={colorPickerContainerStyles}>
           <ColorPicker
-            disableAlpha
             color={currentColor}
             onChangeComplete={(color) => typeof onChangeSelectionColor === 'function' && onChangeSelectionColor(color.hex)}
           />
