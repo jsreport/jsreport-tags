@@ -34,12 +34,11 @@ export default class TagProperties extends Component {
             <ColorPicketTrigger
               displayColorPicker={displayColorPicker}
               containerStyles={{ border: '1px dashed #000' }}
-              translateXColorPickerFromTrigger='55%'
-              translateYColorPickerFromTrigger='-60%'
               color={entity.color}
               onClickColorTrigger={() => this.setState({ displayColorPicker: true })}
               onCloseColorPicker={() => this.setState({ displayColorPicker: false })}
-              onChangeColor={(colorHex) => onChange({ _id: entity._id, color: colorHex })}
+              onInputChange={(colorInputValue) => colorInputValue !== entity.color && onChange({ _id: entity._id, color: colorInputValue })}
+              onChangeSelectionColor={(colorHex) => onChange({ _id: entity._id, color: colorHex })}
             />
           </div>
         </div>

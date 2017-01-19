@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import simpleCheckForValidColor from './simpleCheckForValidColor'
 
 const ShowColor = (props) => {
   const {
@@ -8,9 +9,15 @@ const ShowColor = (props) => {
     width = 20
   } = props
 
+  let currentColor = 'inherit'
+
+  if (simpleCheckForValidColor(color)) {
+    currentColor = color
+  }
+
   return (
     <span style={{
-      backgroundColor: color,
+      backgroundColor: currentColor,
       borderWidth: '1px',
       borderStyle: 'solid',
       borderColor: borderColor,

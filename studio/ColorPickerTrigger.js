@@ -10,18 +10,17 @@ const ColorPicketTrigger = (props) => {
     color,
     containerStyles,
     onClickColorTrigger,
-    onChangeColor,
+    onInputChange,
+    onChangeSelectionColor,
     onCloseColorPicker,
     translateXColorPickerFromTrigger,
     translateYColorPickerFromTrigger
   } = props
 
-  const buttonStyles = {
-    boxShadow: 'none !important',
-    padding: '3px',
-    borderWidth: 0,
-    backgroundColor: 'inherit',
-    cursor: 'pointer'
+  const containerTriggerPickerStyles = {
+    display: 'inline-block',
+    height: '32px',
+    padding: '5px'
   }
 
   const defaultContainerStyles = {
@@ -49,13 +48,20 @@ const ColorPicketTrigger = (props) => {
 
   return (
     <div style={currentContainerStyles}>
-      <button style={buttonStyles} onClick={onClickColorTrigger}>
-        <span style={{ display: 'inline-block', height: '20px' }}>
-          {!currentColor ? '(no color selected)' : <span><ShowColor color={currentColor} />&nbsp;{currentColor}</span>}
+      <span style={containerTriggerPickerStyles}>
+        <span style={{ display: 'inline-block' }}>
+          <ShowColor color={currentColor} />&nbsp;
+          <input
+            type='text'
+            value={currentColor}
+            style={{ width: '120px' }}
+            maxLength={7}
+            placeholder='#006600'
+            onFocus={onClickColorTrigger}
+            onChange={(ev) => typeof onInputChange === 'function' && onInputChange(ev.target.value)}
+          />
         </span>
-        <br />
-        <i>Click to select a color</i>
-      </button>
+      </span>
       <Popover
         open={displayColorPicker}
         onClose={onCloseColorPicker}
@@ -64,7 +70,7 @@ const ColorPicketTrigger = (props) => {
           <ColorPicker
             disableAlpha
             color={currentColor}
-            onChangeComplete={(color) => typeof onChangeColor === 'function' && onChangeColor(color.hex)}
+            onChangeComplete={(color) => typeof onChangeSelectionColor === 'function' && onChangeSelectionColor(color.hex)}
           />
         </div>
       </Popover>
@@ -78,7 +84,8 @@ ColorPicketTrigger.propTypes = {
   containerStyles: PropTypes.object,
   onClickColorTrigger: PropTypes.func,
   onCloseColorPicker: PropTypes.func.isRequired,
-  onChangeColor: PropTypes.fun,
+  onInputChange: PropTypes.fun,
+  onChangeSelectionColor: PropTypes.fun,
   // i know.. it is a shame to decide the position of the color picker
   // in this way, maybe in the future it can be calculated based
   // on the position of the button trigger

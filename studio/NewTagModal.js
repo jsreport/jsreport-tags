@@ -87,7 +87,8 @@ export default class NewTagModal extends Component {
               color={selectedColor}
               onClickColorTrigger={() => this.setState({ displayColorPicker: true })}
               onCloseColorPicker={() => this.setState({ displayColorPicker: false })}
-              onChangeColor={(colorHex) => this.setState({ selectedColor: colorHex })}
+              onInputChange={(colorInputValue) => colorInputValue !== selectedColor && this.setState({ selectedColor: colorInputValue })}
+              onChangeSelectionColor={(colorHex) => this.setState({ selectedColor: colorHex })}
             />
           </div>
         </div>
