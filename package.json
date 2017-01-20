@@ -4,6 +4,7 @@
   "description": "jsreport extension adding organizational capabilities with tags",
   "main": "index.js",
   "scripts": {
+    "start": "jsreport-studio-start --httpPort 4300",
     "test": "mocha test --timeout 5000 && standard",
     "test:watch": "mocha test --watch",
     "build": "jsreport-studio-build",
