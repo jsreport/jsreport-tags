@@ -1,18 +1,23 @@
 import React, { PropTypes } from 'react'
 import simpleCheckForValidColor from './simpleCheckForValidColor'
+import colorLuminance from './colorLuminance'
 
 const ShowColor = (props) => {
   const {
     color,
-    borderColor = '#000',
     height = 15,
     width = 20
   } = props
 
+  let borderColor = props.borderColor
   let currentColor = 'inherit'
 
   if (simpleCheckForValidColor(color)) {
     currentColor = color
+  }
+
+  if (!borderColor) {
+    borderColor = colorLuminance(currentColor, -0.35)
   }
 
   return (
