@@ -3,6 +3,7 @@ import NewTagModal from './NewTagModal'
 import TagEditor from './TagEditor'
 import TagProperties from './TagProperties'
 import EntityTagProperties from './EntityTagProperties'
+import TagEntityTreeToolbar from './TagEntityTreeToolbar'
 
 Studio.addEntitySet({
   name: 'tags',
@@ -16,3 +17,5 @@ Studio.addEntitySet({
 Studio.addEditorComponent('tags', TagEditor)
 Studio.addPropertiesComponent(TagProperties.title, TagProperties, (entity) => entity.__entitySet === 'tags')
 Studio.addPropertiesComponent(EntityTagProperties.title, EntityTagProperties, (entity) => entity.__entitySet === 'templates')
+
+Studio.addEntityTreeToolbarComponent(TagEntityTreeToolbar)
