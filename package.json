@@ -47,6 +47,7 @@
   },
   "dependencies": {
     "lodash.debounce": "4.0.8",
+    "mitt": "1.0.0",
     "object-assign": "4.1.1",
     "shortid": "2.2.6"
   },

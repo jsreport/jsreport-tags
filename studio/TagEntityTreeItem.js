@@ -1,20 +1,6 @@
 import React, { Component } from 'react'
 import ShowColor from './ShowColor'
-
-const findTagInSet = (tagSet, tagShortId) => {
-  let tag
-
-  const found = tagSet.some((tagInSet) => {
-    tag = tagInSet
-    return tagInSet.shortid === tagShortId
-  })
-
-  if (found) {
-    return tag
-  }
-
-  return undefined
-}
+import findTagInSet from './findTagInSet'
 
 class TagEntityTreeItem extends Component {
   render () {
