@@ -5,11 +5,17 @@ import findTagInSet from './findTagInSet'
 class TagEntityTreeItem extends Component {
   render () {
     const { entity, entities } = this.props
-    const tags = entity.tags || []
+    let tags = entity.tags || []
+    
+    // for tags, display the color right in the entity tree
+    if (entity.__entitySet === 'tags') {
+      tags = [entity]
+    }
+
     const tagsLength = tags.length
 
     return (
-      <div style={{ display: 'inline-block', marginLeft: '0.2rem', marginRight: '0.2rem' }}>
+      <div style={{ display: 'inline-block', marginLeft: '0.2rem', marginRight: '0.2rem' }}>                
         {tags.map((tag, tagIndex) => {
           const tagFound = findTagInSet(entities.tags, tag.shortid) || {}
 
