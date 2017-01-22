@@ -51,6 +51,11 @@ class EntityTreeTagOrganizer extends Component {
 
         if (initializeSets) {
           initializeSets.forEach((nameOfSet) => {
+            // ignore tags set for groups
+            if (nameOfSet === 'tags') {
+              return
+            }
+
             collection[tagName].entitiesSet[nameOfSet] = []
           })
         }
