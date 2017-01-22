@@ -20,7 +20,7 @@ Studio.addEntitySet({
 Studio.initializeListeners.push(() => {
   // add tags to referenceAttributes in all entities
   Object.keys(Studio.entitySets).forEach((entitySetName) => {
-    let entitySet = Studio.entitySets[entitySetName]  
+    let entitySet = Studio.entitySets[entitySetName]
 
     // ignore tags entity set
     if (entitySet.name === 'tags') {
