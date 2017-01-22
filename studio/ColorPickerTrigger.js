@@ -83,8 +83,8 @@ ColorPicketTrigger.propTypes = {
   containerStyles: PropTypes.object,
   onClickColorTrigger: PropTypes.func,
   onCloseColorPicker: PropTypes.func.isRequired,
-  onInputChange: PropTypes.fun,
-  onChangeSelectionColor: PropTypes.fun,
+  onInputChange: PropTypes.func,
+  onChangeSelectionColor: PropTypes.func,
   // i know.. it is a shame to decide the position of the color picker
   // in this way, maybe in the future it can be calculated based
   // on the position of the button trigger
