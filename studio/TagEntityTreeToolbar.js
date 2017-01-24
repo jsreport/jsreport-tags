@@ -27,12 +27,12 @@ class TagEntityTreeToolbar extends Component {
     const { organizeByTags } = this.state
 
     return (
-      <div style={{ marginTop: '0.6rem' }}>
+      <div style={{ display: 'inline-block' }}>
+        <TagEntityTreeFilterButtonToolbar />
         <TagEntityTreeOrganizeButtonToolbar
           active={organizeByTags}
           onClick={this.onOrganizationModeChange}
         />
-        <TagEntityTreeFilterButtonToolbar />
       </div>
     )
   }
