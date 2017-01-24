@@ -1,8 +1,8 @@
 import assign from 'object-assign'
 import React, { PropTypes } from 'react'
+import { Popover } from 'jsreport-studio'
 import ShowColor from './ShowColor'
 import ColorPicker from './ColorPicker'
-import Popover from './Popover'
 
 const ColorPicketTrigger = (props) => {
   const {
@@ -54,7 +54,7 @@ const ColorPicketTrigger = (props) => {
           <input
             type='text'
             value={currentColor}
-            style={{ width: '120px' }}
+            style={{ width: '110px' }}
             maxLength={7}
             placeholder='#006600'
             onFocus={onClickColorTrigger}
@@ -63,6 +63,7 @@ const ColorPicketTrigger = (props) => {
         </span>
       </span>
       <Popover
+        wrapper={false}
         open={displayColorPicker}
         onClose={onCloseColorPicker}
       >
