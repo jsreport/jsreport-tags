@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Studio from 'jsreport-studio'
 import emitter from './emitter'
 import findTagInSet from './findTagInSet'
 
@@ -30,6 +31,12 @@ class EntityTreeTagOrganizer extends Component {
   }
 
   addToGroups (groups, tagName) {
+    if (groups.indexOf(tagName) === -1) {
+      groups.push(tagName)
+    }
+  }
+
+  addToGroupsWithData (groups, tagName) {
     if (groups.indexOf(tagName) === -1) {
       groups.push(tagName)
     }
@@ -70,7 +77,13 @@ class EntityTreeTagOrganizer extends Component {
     collectionItem = collection[tagName]
 
     if (noGroup) {
-      collectionItem.push(entity)
+      if (entity) {
+        collectionItem.push(entity)
+      }
+      return
+    }
+
+    if (!entity) {
       return
     }
 
@@ -80,15 +93,37 @@ class EntityTreeTagOrganizer extends Component {
 
     collectionItemEntitiesSet = collectionItem.entitiesSet[entity.__entitySet]
 
-    if (entity) {
-      collectionItemEntitiesSet.push(entity)
-    }
+    collectionItemEntitiesSet.push(entity)
   }
 
   groupEntitiesByTag (entitySets, entities) {
     let groups = []
     let newEntities = {}
     let entitySetsNames = Object.keys(entitySets)
+    let allTagEntities = Studio.getReferences().tags || []
+    let groupsWithData = []
+
+    // initialize all tag groups based on all tag entities
+    allTagEntities.forEach((entityTag) => {
+      const tagInfo = findTagInSet(allTagEntities, entityTag.shortid)
+
+      this.addToEntitiesByTag(newEntities, entitySetsNames, tagInfo.name, {
+        shortid: tagInfo.shortid,
+        color: tagInfo.color,
+        groupType: 'tags'
+      }, undefined)
+    })
+
+    // initialize special groups
+    specialGroups.forEach((specialGroupName) => {
+      let noGroup = false
+
+      if (specialGroupName === tagsGroupName) {
+        noGroup = true
+      }
+
+      this.addToEntitiesByTag(newEntities, entitySetsNames, specialGroupName, undefined, undefined, noGroup)
+    })
 
     entitySetsNames.forEach((entitySetName) => {
       const entitiesInSet = entities[entitySetName]
@@ -118,25 +153,30 @@ class EntityTreeTagOrganizer extends Component {
 
         for (let k = 0; k < tagsCount; k++) {
           const entityTag = entity.tags[k]
-          const tagInfo = findTagInSet(entities['tags'] || [], entityTag.shortid)
+          const tagInfo = findTagInSet(allTagEntities, entityTag.shortid)
 
           if (!tagInfo) {
             continue
           }
 
           this.addToGroups(groups, tagInfo.name)
-          this.addToEntitiesByTag(newEntities, entitySetsNames, tagInfo.name, {
-            shortid: tagInfo.shortid,
-            color: tagInfo.color,
-            groupType: 'tags'
-          }, entity)
+          this.addToGroupsWithData(groupsWithData, tagInfo.name)
+          this.addToEntitiesByTag(newEntities, entitySetsNames, tagInfo.name, undefined, entity)
         }
+      }
+    })
+
+    // empty groups should be inserted in the end of groups array (before special groups)
+    // (it should be inserted to allow its visualization in tree)
+    allTagEntities.forEach((entityTag) => {
+      if (groupsWithData.indexOf(entityTag.name) === -1) {
+        this.addToGroups(groups, entityTag.name)
       }
     })
 
     // special groups should be placed in the end of groups
     specialGroups.forEach((gname) => {
-      groups.push(gname)
+      this.addToGroups(groups, gname)
     })
 
     return {
