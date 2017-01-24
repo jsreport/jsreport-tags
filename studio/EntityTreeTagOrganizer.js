@@ -35,9 +35,10 @@ class EntityTreeTagOrganizer extends Component {
     }
   }
 
-  addToEntitiesByTag (collection, initializeSets, tagName, entity, noGroup) {
+  addToEntitiesByTag (collection, initializeSets, tagName, groupData, entity, noGroup) {
     let collectionItem
     let collectionItemEntitiesSet
+    let dataInGroup = groupData || {}
 
     // initialize collection item if not present
     if (collection[tagName] == null) {
@@ -46,7 +47,11 @@ class EntityTreeTagOrganizer extends Component {
       } else {
         collection[tagName] = {
           __hasChildEntitiesSet__: true,
-          entitiesSet: {}
+          entitiesSet: {},
+          data: {
+            name: tagName,
+            ...dataInGroup
+          }
         }
 
         if (initializeSets) {
@@ -99,13 +104,13 @@ class EntityTreeTagOrganizer extends Component {
 
         if (entitySetName === 'tags') {
           // special groups are added to groups array at the end of the function
-          this.addToEntitiesByTag(newEntities, entitySetsNames, tagsGroupName, entity, true)
+          this.addToEntitiesByTag(newEntities, entitySetsNames, tagsGroupName, undefined, entity, true)
           continue
         }
 
         if (!Array.isArray(entity.tags) || entity.tags.length === 0) {
           // special groups are added to groups array at the end of the function
-          this.addToEntitiesByTag(newEntities, entitySetsNames, noTagGroupName, entity)
+          this.addToEntitiesByTag(newEntities, entitySetsNames, noTagGroupName, undefined, entity)
           continue
         }
 
@@ -120,7 +125,11 @@ class EntityTreeTagOrganizer extends Component {
           }
 
           this.addToGroups(groups, tagInfo.name)
-          this.addToEntitiesByTag(newEntities, entitySetsNames, tagInfo.name, entity)
+          this.addToEntitiesByTag(newEntities, entitySetsNames, tagInfo.name, {
+            shortid: tagInfo.shortid,
+            color: tagInfo.color,
+            groupType: 'tags'
+          }, entity)
         }
       }
     })
