@@ -54,7 +54,7 @@ const ColorPicketTrigger = (props) => {
           <input
             type='text'
             value={currentColor}
-            style={{ width: '110px' }}
+            style={{ width: '90px' }}
             maxLength={7}
             placeholder='#006600'
             onFocus={onClickColorTrigger}
