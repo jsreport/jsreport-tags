@@ -7,6 +7,7 @@ import EntityTreeTagOrganizer from './EntityTreeTagOrganizer'
 import TagEntityTreeToolbar from './TagEntityTreeToolbar'
 import TagEntityTreeItem from './TagEntityTreeItem'
 import TagEntityTreeTagGroupItem from './TagEntityTreeTagGroupItem'
+import filterItemWithTagsStrategy from './filterItemWithTagsStrategy'
 
 Studio.addEntitySet({
   name: 'tags',
@@ -42,3 +43,5 @@ Studio.addEntityTreeWrapperComponent(EntityTreeTagOrganizer)
 Studio.addEntityTreeToolbarComponent(TagEntityTreeToolbar)
 Studio.addEntityTreeItemComponent(TagEntityTreeItem)
 Studio.addEntityTreeItemComponent(TagEntityTreeTagGroupItem, 'groupRight')
+
+Studio.entityTreeFilterItemResolvers.push(filterItemWithTagsStrategy)
