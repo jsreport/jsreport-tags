@@ -90,7 +90,15 @@ class TagEntityTreeFilterByTags extends Component {
     let keyCode = ev.keyCode
     let inputTag = ev.target
     let remove = false
+    let enterKey = 13
     let removeKey = 8
+
+    if (keyCode === enterKey) {
+      ev.preventDefault()
+
+      this.props.onFilterClose()
+      return
+    }
 
     if (keyCode === removeKey) {
       remove = true

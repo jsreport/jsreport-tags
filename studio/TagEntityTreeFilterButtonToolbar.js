@@ -32,6 +32,7 @@ class TagEntityTreeFilterButtonToolbar extends Component {
             tags={allTags}
             selectedTags={selectedTags}
             onTagSelectChange={onTagSelectChange}
+            onFilterClose={onFilterClose}
           />
         </Popover>
       </div>
