@@ -1,7 +1,7 @@
 
 export default (entity, entitySets, filterInfo) => {
   const { tags } = filterInfo
-  const allTagsInEntity = entity.tags || []
+  const allTagsInEntity = entity.tags || []
 
   if (tags == null) {
     return true
