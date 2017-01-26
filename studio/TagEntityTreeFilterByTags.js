@@ -22,6 +22,10 @@ class TagEntityTreeFilterByTags extends Component {
     this.onRemoveTagItem = this.onRemoveTagItem.bind(this)
   }
 
+  componentDidMount () {
+    this.focus()
+  }
+
   createRenderer (tags) {
     return (index, key) => this.renderTagItem(tags[index])
   }
