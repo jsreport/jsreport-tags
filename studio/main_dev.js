@@ -15,7 +15,8 @@ Studio.addEntitySet({
   visibleName: 'tag',
   onNew: () => Studio.openModal(NewTagModal),
   helpUrl: 'http://jsreport.net/learn/tags',
-  referenceAttributes: ['color']
+  referenceAttributes: ['color'],
+  entityTreePosition: 300
 })
 
 // wait for all extensions to be loaded
