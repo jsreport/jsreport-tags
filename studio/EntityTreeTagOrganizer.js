@@ -11,7 +11,15 @@ class EntityTreeTagOrganizer extends Component {
   constructor () {
     super()
 
-    this.state = { organizeByTags: false }
+    let organizeByDefault = Studio.extensions['tags'].options.organizeByDefault
+
+    if (organizeByDefault == null) {
+      organizeByDefault = false
+    }
+
+    this.state = {
+      organizeByTags: organizeByDefault
+    }
 
     this.onOrganizationModeChange = this.onOrganizationModeChange.bind(this)
   }

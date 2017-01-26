@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Studio from 'jsreport-studio'
 import emitter from './emitter'
 import TagEntityTreeOrganizeButtonToolbar from './TagEntityTreeOrganizeButtonToolbar'
 import TagEntityTreeFilterButtonToolbar from './TagEntityTreeFilterButtonToolbar'
@@ -7,8 +8,14 @@ class TagEntityTreeToolbar extends Component {
   constructor (props) {
     super(props)
 
+    let organizeByDefault = Studio.extensions['tags'].options.organizeByDefault
+
+    if (organizeByDefault == null) {
+      organizeByDefault = false
+    }
+
     this.state = {
-      organizeByTags: false,
+      organizeByTags: organizeByDefault,
       showFilterBytag: false,
       filteredByTags: false,
       selectedTags: []
