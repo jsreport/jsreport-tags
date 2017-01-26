@@ -10,7 +10,7 @@ class TagEntityTreeFilterByTags extends Component {
     super(props)
 
     this.state = {
-      showTagsList: false,
+      showTagsList: true,
       filterText: ''
     }
 
@@ -96,8 +96,7 @@ class TagEntityTreeFilterByTags extends Component {
     if (keyCode === enterKey) {
       ev.preventDefault()
 
-      this.props.onFilterClose()
-      return
+      return this.props.onFilterClose()
     }
 
     if (keyCode === removeKey) {
@@ -186,7 +185,6 @@ class TagEntityTreeFilterByTags extends Component {
                 style={stylesForInputTag}
                 onChange={this.onChangeInputTag}
                 onKeyDown={this.onKeyDownInputTag}
-                onFocus={() => this.setState({ showTagsList: true })}
               />
             </span>
           </div>
@@ -229,7 +227,8 @@ TagEntityTreeFilterByTags.propTypes = {
     name: PropTypes.string,
     color: PropTypes.string
   })),
-  onTagSelectChange: PropTypes.func
+  onTagSelectChange: PropTypes.func,
+  onFilterClose: PropTypes.func
 }
 
 export default TagEntityTreeFilterByTags
