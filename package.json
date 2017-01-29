@@ -30,6 +30,7 @@
   ],
   "files": [
     "lib",
+    "shared",
     "studio",
     "index.js",
     "jsreport.config.js"
