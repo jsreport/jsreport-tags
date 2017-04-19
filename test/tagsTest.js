@@ -15,7 +15,7 @@ describe('tags', function () {
 
     reporter.init().then(function () {
       done()
-    }).fail(done)
+    }).catch(done)
   })
 
   it('should not allow creation with reserved tag names', function (done) {
