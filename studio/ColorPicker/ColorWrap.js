@@ -33,7 +33,7 @@ const ColorWrap = (Picker) => {
       })
     }
 
-    handleChange = (data, event) => {
+    handleChange (data, event) {
       const isValidColor = simpleCheckForValidColor(data.hex)
 
       if (isValidColor) {

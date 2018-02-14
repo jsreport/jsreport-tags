@@ -1,7 +1,7 @@
 
-var noTagGroupName = '(objects without tag)'
-var tagsGroupName = 'tags'
-var reservedTagNames = [noTagGroupName, tagsGroupName]
+const noTagGroupName = '(objects without tag)'
+const tagsGroupName = 'tags'
+const reservedTagNames = [noTagGroupName, tagsGroupName]
 
 module.exports.default = reservedTagNames
 module.exports.noTagGroupName = noTagGroupName
