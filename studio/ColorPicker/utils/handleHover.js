@@ -4,7 +4,11 @@ const handleHover = (Component, Span = 'span') => {
   return class Hover extends React.Component {
     constructor (props) {
       super(props)
+
       this.state = { hover: false }
+
+      this.handleMouseOver = this.handleMouseOver.bind(this)
+      this.handleMouseOut = this.handleMouseOut.bind(this)
     }
 
     handleMouseOver () {

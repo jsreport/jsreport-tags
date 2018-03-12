@@ -24,6 +24,8 @@ const ColorWrap = (Picker) => {
       this.debounce = debounce((fn, data, event) => {
         fn(data, event)
       }, 100)
+
+      this.handleChange = this.handleChange.bind(this)
     }
 
     componentWillReceiveProps (nextProps) {
