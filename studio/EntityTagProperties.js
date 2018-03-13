@@ -1,19 +1,25 @@
 import React, { Component } from 'react'
 import ShowColor from './ShowColor'
 
-const selectValues = (event, atags) => {
-  const el = event.target
+import Studio from 'jsreport-studio'
+
+const MultiSelect = Studio.MultiSelect
+
+const selectValues = (selectData, atags) => {
+  const { value: selectedValue, options } = selectData
 
   let tags = Object.assign([], atags)
 
-  for (var i = 0; i < el.options.length; i++) {
-    if (el.options[i].selected) {
-      if (!tags.filter((t) => t.shortid === el.options[i].value).length) {
-        tags.push({ shortid: el.options[i].value })
+  for (var i = 0; i < options.length; i++) {
+    const optionIsSelected = selectedValue.indexOf(options[i].value) !== -1
+
+    if (optionIsSelected) {
+      if (!tags.filter((t) => t.shortid === options[i].value).length) {
+        tags.push({ shortid: options[i].value })
       }
     } else {
-      if (tags.filter((t) => t.shortid === el.options[i].value).length) {
-        tags = tags.filter((t) => t.shortid !== el.options[i].value)
+      if (tags.filter((t) => t.shortid === options[i].value).length) {
+        tags = tags.filter((t) => t.shortid !== options[i].value)
       }
     }
   }
@@ -94,14 +100,13 @@ export default class EntityTagProperties extends Component {
     return (
       <div className='properties-section'>
         <div className='form-group'>
-          <select
-            title='Use CTRL to deselect item and also to select multiple options.'
-            multiple
-            size='7'
+          <MultiSelect
+            title='Use the checkboxes to select/deselect multiple options.'
+            size={7}
             value={entity.tags ? entity.tags.map((t) => t.shortid) : []}
-            onChange={(v) => onChange({_id: entity._id, tags: selectValues(v, entity.tags)})}>
-            {tags.map((t) => <option key={t.shortid} value={t.shortid}>{t.name}</option>)}
-          </select>
+            onChange={(selectData) => onChange({_id: entity._id, tags: selectValues(selectData, entity.tags)})}
+            options={tags.map((t) => ({ key: t.shortid, name: t.name, value: t.shortid }))}
+          />
         </div>
       </div>
     )
