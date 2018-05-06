@@ -1,9 +1,8 @@
-var assign = require('object-assign')
 var main = require('./lib/tags')
 var config = require('./jsreport.config')
 
 module.exports = function (options) {
-  var newConfig = assign({}, config)
+  var newConfig = Object.assign({}, config)
 
   newConfig.options = options
   newConfig.main = main

@@ -1,17 +1,28 @@
-
 import React from 'react'
 
 const handleHover = (Component, Span = 'span') => {
   return class Hover extends React.Component {
-    state = { hover: false }
-    handleMouseOver = () => this.setState({ hover: true })
-    handleMouseOut = () => this.setState({ hover: false })
+    constructor (props) {
+      super(props)
 
-    render = () => (
-      <Span onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}>
+      this.state = { hover: false }
+
+      this.handleMouseOver = this.handleMouseOver.bind(this)
+      this.handleMouseOut = this.handleMouseOut.bind(this)
+    }
+
+    handleMouseOver () {
+      this.setState({ hover: true })
+    }
+    handleMouseOut () {
+      this.setState({ hover: false })
+    }
+
+    render () {
+      return <Span onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}>
         <Component {...this.props} {...this.state} />
       </Span>
-    )
+    }
   }
 }
 

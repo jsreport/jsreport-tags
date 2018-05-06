@@ -3,10 +3,6 @@ import Studio from 'jsreport-studio'
 import ColorPicketTrigger from './ColorPickerTrigger'
 
 export default class NewTagModal extends Component {
-  static propTypes = {
-    close: PropTypes.func.isRequired
-  }
-
   constructor (props) {
     super(props)
 
@@ -120,4 +116,8 @@ export default class NewTagModal extends Component {
       </div>
     )
   }
+}
+
+NewTagModal.propTypes = {
+  close: PropTypes.func.isRequired
 }
