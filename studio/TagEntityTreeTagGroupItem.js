@@ -3,9 +3,9 @@ import ShowColor from './ShowColor'
 
 class TagEntityTreeTagGroupItem extends Component {
   render () {
-    const { groupType, name, color } = this.props
+    const { name, __entitySet, color } = this.props
 
-    if (groupType !== 'tags') {
+    if (__entitySet !== 'tags') {
       return null
     }
 

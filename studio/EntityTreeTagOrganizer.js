@@ -3,9 +3,7 @@ import Studio from 'jsreport-studio'
 import emitter from './emitter'
 import findTagInSet from './findTagInSet'
 
-const { default: reservedTagNames, noTagGroupName, tagsGroupName } = require('../shared/reservedTagNames')
-
-const specialGroups = reservedTagNames
+const { noTagGroupName, tagsGroupName } = require('../shared/reservedTagNames')
 
 class EntityTreeTagOrganizer extends Component {
   constructor () {
@@ -38,102 +36,186 @@ class EntityTreeTagOrganizer extends Component {
     })
   }
 
-  addToGroups (groups, tagName) {
-    if (groups.indexOf(tagName) === -1) {
-      groups.push(tagName)
-    }
-  }
+  addItemsByTag (
+    newItems,
+    entitySetsNames,
+    allTagEntities,
+    currentTagEntities,
+    entitiesByTagAndType,
+    entitiesByTypeWithoutTag,
+    getEntityTypeNameAttr
+  ) {
+    const tagsWithNoEntities = []
 
-  addToGroupsWithData (groups, tagName) {
-    if (groups.indexOf(tagName) === -1) {
-      groups.push(tagName)
-    }
-  }
+    allTagEntities.forEach((tag) => {
+      const tagName = getEntityTypeNameAttr(tag.__entitySet, tag)
+      const entitiesByType = entitiesByTagAndType[tagName]
+      const typesInTag = Object.keys(entitiesByType)
 
-  addToEntitiesByTag (collection, initializeSets, tagName, groupData, entity, noGroup) {
-    let collectionItem
-    let collectionItemEntitiesSet
-    let dataInGroup = groupData || {}
+      if (
+        typesInTag.length === 0 ||
+        typesInTag.every((type) => entitiesByType[type].length > 0) === false
+      ) {
+        tagsWithNoEntities.push(tag)
+        return
+      }
 
-    // initialize collection item if not present
-    if (collection[tagName] == null) {
-      if (noGroup) {
-        collection[tagName] = []
-      } else {
-        collection[tagName] = {
-          __hasChildEntitiesSet__: true,
-          entitiesSet: {},
-          data: {
+      let tagItem
+
+      entitySetsNames.forEach((type) => {
+        if (type === 'tags') {
+          return
+        }
+
+        const entities = entitiesByType[type]
+        let typeItem
+
+        if (!tagItem) {
+          tagItem = {
             name: tagName,
-            ...dataInGroup
+            isGroup: true,
+            data: tag,
+            items: []
           }
+
+          newItems.push(tagItem)
         }
 
-        if (initializeSets) {
-          initializeSets.forEach((nameOfSet) => {
-            // ignore tags set for groups
-            if (nameOfSet === 'tags') {
-              return
-            }
-
-            collection[tagName].entitiesSet[nameOfSet] = []
+        if (!entities || entities.length === 0) {
+          tagItem.items.push({
+            name: type,
+            isEntitySet: true,
+            items: []
           })
+
+          return
         }
+
+        typeItem = {
+          name: type,
+          isEntitySet: true,
+          items: []
+        }
+
+        entities.forEach((entity) => {
+          typeItem.items.push({
+            name: getEntityTypeNameAttr(entity.__entitySet, entity),
+            data: entity
+          })
+        })
+
+        tagItem.items.push(typeItem)
+      })
+    })
+
+    tagsWithNoEntities.forEach((tag) => {
+      const tagItem = {
+        name: getEntityTypeNameAttr(tag.__entitySet, tag),
+        isGroup: true,
+        data: tag,
+        items: []
       }
+
+      entitySetsNames.forEach((type) => {
+        if (type === 'tags') {
+          return
+        }
+
+        tagItem.items.push({
+          name: type,
+          isEntitySet: true,
+          items: []
+        })
+      })
+
+      newItems.push(tagItem)
+    })
+
+    const noTagsItem = {
+      name: noTagGroupName,
+      isGroup: true,
+      items: []
     }
 
-    collectionItem = collection[tagName]
-
-    if (noGroup) {
-      if (entity) {
-        collectionItem.push(entity)
+    entitySetsNames.forEach((type) => {
+      if (type === 'tags') {
+        return
       }
-      return
+
+      const item = {
+        name: type,
+        isEntitySet: true,
+        items: []
+      }
+
+      const entities = entitiesByTypeWithoutTag[type]
+
+      if (entities) {
+        entities.forEach((entity) => {
+          item.items.push({
+            name: getEntityTypeNameAttr(entity.__entitySet, entity),
+            data: entity
+          })
+        })
+      }
+
+      noTagsItem.items.push(item)
+    })
+
+    newItems.push(noTagsItem)
+
+    const tagsItem = {
+      name: tagsGroupName,
+      isEntitySet: true,
+      items: []
     }
 
-    if (!entity) {
-      return
+    if (currentTagEntities) {
+      currentTagEntities.forEach((tag) => {
+        tagsItem.items.push({
+          name: getEntityTypeNameAttr(tag.__entitySet, tag),
+          data: tag
+        })
+      })
     }
 
-    if (collectionItem.entitiesSet[entity.__entitySet] == null) {
-      collectionItem.entitiesSet[entity.__entitySet] = []
-    }
-
-    collectionItemEntitiesSet = collectionItem.entitiesSet[entity.__entitySet]
-
-    collectionItemEntitiesSet.push(entity)
+    newItems.push(tagsItem)
   }
 
-  groupEntitiesByTag (entitySets, entities) {
-    let groups = []
-    let newEntities = {}
-    let entitySetsNames = Object.keys(entitySets)
+  groupEntityByTagAndType (collection, allTagEntities, entity, getEntityTypeNameAttr) {
+    if (entity.__entitySet === 'tags') {
+      const name = getEntityTypeNameAttr(entity.__entitySet, entity)
+      collection[name] = collection[name] || {}
+    } else if (entity.tags != null) {
+      entity.tags.forEach((tag) => {
+        const tagFound = findTagInSet(allTagEntities, tag.shortid)
+
+        if (tagFound) {
+          const name = getEntityTypeNameAttr(tagFound.__entitySet, tagFound)
+          collection[name] = collection[name] || []
+          collection[name][entity.__entitySet] = collection[name][entity.__entitySet] || []
+          collection[name][entity.__entitySet].push(entity)
+        }
+      })
+    }
+  }
+
+  groupEntitiesByTag (entitySetsNames, entities, getEntityTypeNameAttr) {
+    const newItems = []
     let allTagEntities = Studio.getReferences().tags || []
-    let groupsWithData = []
+    const entitiesByTagAndType = {}
+    const entitiesByTypeWithoutTag = {}
 
     // initialize all tag groups based on all tag entities
     allTagEntities.forEach((entityTag) => {
-      const tagInfo = findTagInSet(allTagEntities, entityTag.shortid)
-
-      this.addToEntitiesByTag(newEntities, entitySetsNames, tagInfo.name, {
-        shortid: tagInfo.shortid,
-        color: tagInfo.color,
-        groupType: 'tags'
-      }, undefined)
-    })
-
-    // initialize special groups
-    specialGroups.forEach((specialGroupName) => {
-      let noGroup = false
-
-      if (specialGroupName === tagsGroupName) {
-        noGroup = true
-      }
-
-      this.addToEntitiesByTag(newEntities, entitySetsNames, specialGroupName, undefined, undefined, noGroup)
+      this.groupEntityByTagAndType(entitiesByTagAndType, allTagEntities, entityTag, getEntityTypeNameAttr)
     })
 
     entitySetsNames.forEach((entitySetName) => {
+      if (entitySetName === 'tags') {
+        return
+      }
+
       const entitiesInSet = entities[entitySetName]
 
       if (!entitiesInSet) {
@@ -145,52 +227,26 @@ class EntityTreeTagOrganizer extends Component {
       for (let j = 0; j < entitiesInSetCount; j++) {
         const entity = entitiesInSet[j]
 
-        if (entitySetName === 'tags') {
-          // special groups are added to groups array at the end of the function
-          this.addToEntitiesByTag(newEntities, entitySetsNames, tagsGroupName, undefined, entity, true)
-          continue
-        }
-
-        if (!Array.isArray(entity.tags) || entity.tags.length === 0) {
-          // special groups are added to groups array at the end of the function
-          this.addToEntitiesByTag(newEntities, entitySetsNames, noTagGroupName, undefined, entity)
-          continue
-        }
-
-        let tagsCount = entity.tags.length
-
-        for (let k = 0; k < tagsCount; k++) {
-          const entityTag = entity.tags[k]
-          const tagInfo = findTagInSet(allTagEntities, entityTag.shortid)
-
-          if (!tagInfo) {
-            continue
-          }
-
-          this.addToGroups(groups, tagInfo.name)
-          this.addToGroupsWithData(groupsWithData, tagInfo.name)
-          this.addToEntitiesByTag(newEntities, entitySetsNames, tagInfo.name, undefined, entity)
+        if (entity.tags != null) {
+          this.groupEntityByTagAndType(entitiesByTagAndType, allTagEntities, entity, getEntityTypeNameAttr)
+        } else {
+          entitiesByTypeWithoutTag[entity.__entitySet] = entitiesByTypeWithoutTag[entity.__entitySet] || []
+          entitiesByTypeWithoutTag[entity.__entitySet].push(entity)
         }
       }
     })
 
-    // empty groups should be inserted in the end of groups array (before special groups)
-    // (it should be inserted to allow its visualization in tree)
-    allTagEntities.forEach((entityTag) => {
-      if (groupsWithData.indexOf(entityTag.name) === -1) {
-        this.addToGroups(groups, entityTag.name)
-      }
-    })
+    this.addItemsByTag(
+      newItems,
+      entitySetsNames,
+      allTagEntities,
+      entities.tags,
+      entitiesByTagAndType,
+      entitiesByTypeWithoutTag,
+      getEntityTypeNameAttr
+    )
 
-    // special groups should be placed in the end of groups
-    specialGroups.forEach((gname) => {
-      this.addToGroups(groups, gname)
-    })
-
-    return {
-      groups,
-      entitiesByTag: newEntities
-    }
+    return newItems
   }
 
   render () {
@@ -203,22 +259,20 @@ class EntityTreeTagOrganizer extends Component {
           custom rendering of items in tree
         */}
         {React.cloneElement(this.props.children, {}, ({
-          renderClassicTree,
-          renderObjectSubTree,
+          renderDefaultTree,
+          renderTree,
+          getSetsToRender,
+          getEntityTypeNameAttr,
           entitySets,
           entities
         }) => {
           const { organizeByTags } = this.state
 
           if (!organizeByTags) {
-            return renderClassicTree(entitySets, entities)
+            return renderDefaultTree(entitySets, entities)
           }
 
-          let { groups, entitiesByTag } = this.groupEntitiesByTag(entitySets, entities)
-
-          return groups.map((groupName) => {
-            return renderObjectSubTree(groupName, entitiesByTag[groupName] || [])
-          })
+          return renderTree(this.groupEntitiesByTag(getSetsToRender(entitySets), entities, getEntityTypeNameAttr))
         })}
       </div>
     )

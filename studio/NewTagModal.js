@@ -39,6 +39,10 @@ export default class NewTagModal extends Component {
       })
     }
 
+    if (this.props.options.defaults != null) {
+      entity = Object.assign(entity, this.props.options.defaults)
+    }
+
     entity.name = this.refs.name.value
     entity.color = this.state.selectedColor
     entity.description = this.refs.description.value

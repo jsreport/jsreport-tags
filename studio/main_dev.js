@@ -13,7 +13,7 @@ Studio.addEntitySet({
   name: 'tags',
   faIcon: 'fa-tag',
   visibleName: 'tag',
-  onNew: () => Studio.openModal(NewTagModal),
+  onNew: (options) => Studio.openModal(NewTagModal, options),
   helpUrl: 'http://jsreport.net/learn/tags',
   referenceAttributes: ['color'],
   entityTreePosition: 300
