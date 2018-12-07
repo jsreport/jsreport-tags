@@ -1,4 +1,3 @@
-import assign from 'object-assign'
 import React, { PropTypes } from 'react'
 import { Popover } from 'jsreport-studio'
 import ShowColor from './ShowColor'
@@ -28,7 +27,7 @@ const ColorPicketTrigger = (props) => {
   }
 
   const currentColor = color || ''
-  const currentContainerStyles = assign({}, defaultContainerStyles, containerStyles)
+  const currentContainerStyles = Object.assign({}, defaultContainerStyles, containerStyles)
 
   let colorPickerContainerStyles = {}
 
