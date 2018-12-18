@@ -1,28 +1,13 @@
 import React, { Component } from 'react'
 import ShowColor from './ShowColor'
-
 import Studio from 'jsreport-studio'
 
-const MultiSelect = Studio.MultiSelect
+const EntityRefSelect = Studio.EntityRefSelect
 
-const selectValues = (selectData, atags) => {
-  const { value: selectedValue, options } = selectData
-
-  let tags = Object.assign([], atags)
-
-  for (var i = 0; i < options.length; i++) {
-    const optionIsSelected = selectedValue.indexOf(options[i].value) !== -1
-
-    if (optionIsSelected) {
-      if (!tags.filter((t) => t.shortid === options[i].value).length) {
-        tags.push({ shortid: options[i].value })
-      }
-    } else {
-      if (tags.filter((t) => t.shortid === options[i].value).length) {
-        tags = tags.filter((t) => t.shortid !== options[i].value)
-      }
-    }
-  }
+const selectValues = (selected) => {
+  const tags = selected.map((v) => {
+    return { shortid: v.shortid }
+  })
 
   return tags
 }
@@ -75,10 +60,6 @@ export default class EntityTagProperties extends Component {
     this.removeInvalidTagReferences()
   }
 
-  selectTags (entities) {
-    return Object.keys(entities).filter((k) => entities[k].__entitySet === 'tags').map((k) => entities[k])
-  }
-
   removeInvalidTagReferences () {
     const { entity, entities, onChange } = this.props
 
@@ -94,18 +75,17 @@ export default class EntityTagProperties extends Component {
   }
 
   render () {
-    const { entity, entities, onChange } = this.props
-    const tags = this.selectTags(entities)
+    const { entity, onChange } = this.props
 
     return (
       <div className='properties-section'>
         <div className='form-group'>
-          <MultiSelect
-            title='Use the checkboxes to select/deselect multiple options.'
-            size={7}
+          <EntityRefSelect
+            headingLabel='Select tags'
+            filter={(references) => ({ tags: references.tags })}
             value={entity.tags ? entity.tags.map((t) => t.shortid) : []}
-            onChange={(selectData) => onChange({_id: entity._id, tags: selectValues(selectData, entity.tags)})}
-            options={tags.map((t) => ({ key: t.shortid, name: t.name, value: t.shortid }))}
+            onChange={(selected) => onChange({ _id: entity._id, tags: selectValues(selected) })}
+            multiple
           />
         </div>
       </div>
