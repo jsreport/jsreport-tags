@@ -4,9 +4,12 @@ import TagEditor from './TagEditor'
 import TagProperties from './TagProperties'
 import EntityTagProperties from './EntityTagProperties'
 import EntityTreeTagOrganizer from './EntityTreeTagOrganizer'
-import TagEntityTreeToolbar from './TagEntityTreeToolbar'
+import TagEntityTreeOrganizeButtonToolbar from './TagEntityTreeOrganizeButtonToolbar'
+import TagEntityTreeFilterButtonToolbar from './TagEntityTreeFilterButtonToolbar'
 import TagEntityTreeItem from './TagEntityTreeItem'
 import TagEntityTreeTagGroupItem from './TagEntityTreeTagGroupItem'
+import emitter from './emitter'
+import * as organizeState from './organizeState'
 import filterItemWithTagsStrategy from './filterItemWithTagsStrategy'
 
 Studio.addEntitySet({
@@ -36,12 +39,18 @@ Studio.initializeListeners.push(() => {
   })
 })
 
+emitter.on('organizationModeByTagsChanged', (organizationMode) => { organizeState.current = organizationMode })
+emitter.on('filterByTagsChanged', (selectedTags) => { organizeState.filterTags = selectedTags })
+
 Studio.addEditorComponent('tags', TagEditor)
 Studio.addPropertiesComponent(TagProperties.title, TagProperties, (entity) => entity.__entitySet === 'tags')
 Studio.addPropertiesComponent(EntityTagProperties.title, EntityTagProperties, (entity) => entity.__entitySet !== 'tags')
 
 Studio.addEntityTreeWrapperComponent(EntityTreeTagOrganizer)
-Studio.addEntityTreeToolbarComponent(TagEntityTreeToolbar)
+
+Studio.addEntityTreeToolbarComponent(TagEntityTreeFilterButtonToolbar, 'group')
+Studio.addEntityTreeToolbarComponent(TagEntityTreeOrganizeButtonToolbar, 'group')
+
 Studio.addEntityTreeItemComponent(TagEntityTreeItem)
 Studio.addEntityTreeItemComponent(TagEntityTreeTagGroupItem, 'groupRight')
 

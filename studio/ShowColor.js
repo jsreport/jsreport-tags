@@ -26,7 +26,6 @@ const ShowColor = (props) => {
       borderWidth: '1px',
       borderStyle: 'solid',
       borderColor: borderColor,
-      content: ' ',
       display: 'inline-block',
       height: height,
       verticalAlign: 'middle',

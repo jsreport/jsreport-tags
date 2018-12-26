@@ -10,7 +10,7 @@ class TagEntityTreeTagGroupItem extends Component {
     }
 
     return (
-      <span title={name} style={{ display: 'inline-block' }}>
+      <span title={name} style={{ display: 'inline-block', marginLeft: '0.2rem', marginRight: '0.2rem' }}>
         <ShowColor color={color} width={8} height={15} />
         &nbsp;
       </span>
