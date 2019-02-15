@@ -7,7 +7,10 @@ module.exports = {
       tags: {
         type: 'object',
         properties: {
-          organizeByDefault: { type: 'boolean' }
+          organizeByDefault: {
+            type: 'boolean',
+            $exposeToApi: true
+          }
         }
       }
     }
