@@ -8,8 +8,7 @@ module.exports = {
         type: 'object',
         properties: {
           organizeByDefault: {
-            type: 'boolean',
-            $exposeToApi: true
+            type: 'boolean'
           }
         }
       }
