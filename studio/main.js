@@ -410,7 +410,7 @@ exports.default = function (tagSet, tagShortId) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"active":"JSREPORT-STUDIO-EXTENSION-TAGS-studio--TagEntityTreeButtonToolbar--active"};
+module.exports = {"active":"TAGS-TagEntityTreeButtonToolbar-active"};
 
 /***/ }),
 /* 10 */
@@ -2997,7 +2997,7 @@ exports.default = function (hex) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"searchTagsContainer":"JSREPORT-STUDIO-EXTENSION-TAGS-studio--TagEntityTreeFilterByTags--searchTagsContainer","searchTagsInputBox":"JSREPORT-STUDIO-EXTENSION-TAGS-studio--TagEntityTreeFilterByTags--searchTagsInputBox","searchTags":"JSREPORT-STUDIO-EXTENSION-TAGS-studio--TagEntityTreeFilterByTags--searchTags","tagsListContainer":"JSREPORT-STUDIO-EXTENSION-TAGS-studio--TagEntityTreeFilterByTags--tagsListContainer","tagsList":"JSREPORT-STUDIO-EXTENSION-TAGS-studio--TagEntityTreeFilterByTags--tagsList","tagsListEmpty":"JSREPORT-STUDIO-EXTENSION-TAGS-studio--TagEntityTreeFilterByTags--tagsListEmpty","tagsListItem":"JSREPORT-STUDIO-EXTENSION-TAGS-studio--TagEntityTreeFilterByTags--tagsListItem","tagsSelect":"JSREPORT-STUDIO-EXTENSION-TAGS-studio--TagEntityTreeFilterByTags--tagsSelect","tagsSelectItem":"JSREPORT-STUDIO-EXTENSION-TAGS-studio--TagEntityTreeFilterByTags--tagsSelectItem","tagsSelectItemRemove":"JSREPORT-STUDIO-EXTENSION-TAGS-studio--TagEntityTreeFilterByTags--tagsSelectItemRemove"};
+module.exports = {"searchTagsContainer":"TAGS-TagEntityTreeFilterByTags-searchTagsContainer","searchTagsInputBox":"TAGS-TagEntityTreeFilterByTags-searchTagsInputBox","searchTags":"TAGS-TagEntityTreeFilterByTags-searchTags","tagsListContainer":"TAGS-TagEntityTreeFilterByTags-tagsListContainer","tagsList":"TAGS-TagEntityTreeFilterByTags-tagsList","tagsListEmpty":"TAGS-TagEntityTreeFilterByTags-tagsListEmpty","tagsListItem":"TAGS-TagEntityTreeFilterByTags-tagsListItem","tagsSelect":"TAGS-TagEntityTreeFilterByTags-tagsSelect","tagsSelectItem":"TAGS-TagEntityTreeFilterByTags-tagsSelectItem","tagsSelectItemRemove":"TAGS-TagEntityTreeFilterByTags-tagsSelectItemRemove"};
 
 /***/ }),
 /* 32 */

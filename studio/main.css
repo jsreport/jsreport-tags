@@ -1,24 +1,24 @@
 
-.JSREPORT-STUDIO-EXTENSION-TAGS-studio--TagEntityTreeButtonToolbar--active {
+.TAGS-TagEntityTreeButtonToolbar-active {
   border-bottom: 0.1rem solid #000;
 }
 
 
-.JSREPORT-STUDIO-EXTENSION-TAGS-studio--TagEntityTreeFilterByTags--searchTagsContainer {
+.TAGS-TagEntityTreeFilterByTags-searchTagsContainer {
   display: inline-block;
   margin-left: -0.3rem;
   margin-right: -0.3rem;
   position: relative;
 }
 
-.JSREPORT-STUDIO-EXTENSION-TAGS-studio--TagEntityTreeFilterByTags--searchTagsInputBox {
+.TAGS-TagEntityTreeFilterByTags-searchTagsInputBox {
   display: inline-block;
   padding-left: 0.3rem;
   padding-right: 0.3rem;
   position: relative;
 }
 
-.JSREPORT-STUDIO-EXTENSION-TAGS-studio--TagEntityTreeFilterByTags--searchTagsInputBox:before {
+.TAGS-TagEntityTreeFilterByTags-searchTagsInputBox:before {
   content: "\f02b";
   margin-right: 0.3rem;
   color: #c6c6c6;
@@ -26,7 +26,7 @@
   position: absolute;
 }
 
-.JSREPORT-STUDIO-EXTENSION-TAGS-studio--TagEntityTreeFilterByTags--searchTags {
+.TAGS-TagEntityTreeFilterByTags-searchTags {
   border: none;
   border-bottom-width: 0;
   transition: border 0.3s;
@@ -34,18 +34,18 @@
   width: 35px;
 }
 
-.JSREPORT-STUDIO-EXTENSION-TAGS-studio--TagEntityTreeFilterByTags--searchTags:focus,
-.JSREPORT-STUDIO-EXTENSION-TAGS-studio--TagEntityTreeFilterByTags--searchTags:hover {
+.TAGS-TagEntityTreeFilterByTags-searchTags:focus,
+.TAGS-TagEntityTreeFilterByTags-searchTags:hover {
   border-bottom-width: 0;
 }
 
-.JSREPORT-STUDIO-EXTENSION-TAGS-studio--TagEntityTreeFilterByTags--tagsListContainer {
+.TAGS-TagEntityTreeFilterByTags-tagsListContainer {
   display: block;
   max-height: 150px;
   position: relative;
 }
 
-.JSREPORT-STUDIO-EXTENSION-TAGS-studio--TagEntityTreeFilterByTags--tagsList {
+.TAGS-TagEntityTreeFilterByTags-tagsList {
   background-color: #fff;
   border: 1px solid rgba(0,0,0,.2);
   box-shadow: 0 3px 12px rgba(0,0,0,.15);
@@ -57,13 +57,13 @@
   z-index: 3;
 }
 
-.JSREPORT-STUDIO-EXTENSION-TAGS-studio--TagEntityTreeFilterByTags--tagsListEmpty {
+.TAGS-TagEntityTreeFilterByTags-tagsListEmpty {
   padding-top: 0.4rem;
   padding-bottom: 0.4rem;
   text-align: center;
 }
 
-.JSREPORT-STUDIO-EXTENSION-TAGS-studio--TagEntityTreeFilterByTags--tagsListItem {
+.TAGS-TagEntityTreeFilterByTags-tagsListItem {
   color: #000;
   cursor: pointer;
   padding-bottom: 0.4rem;
@@ -72,18 +72,18 @@
   padding-top: 0.4rem;
 }
 
-.JSREPORT-STUDIO-EXTENSION-TAGS-studio--TagEntityTreeFilterByTags--tagsListItem:hover {
+.TAGS-TagEntityTreeFilterByTags-tagsListItem:hover {
   background-color: #1C97EA;
   color: #fff;
 }
 
-.JSREPORT-STUDIO-EXTENSION-TAGS-studio--TagEntityTreeFilterByTags--tagsSelect {
+.TAGS-TagEntityTreeFilterByTags-tagsSelect {
   display: inline-block;
   padding-left: 18px;
   width: 150px;
 }
 
-.JSREPORT-STUDIO-EXTENSION-TAGS-studio--TagEntityTreeFilterByTags--tagsSelectItem {
+.TAGS-TagEntityTreeFilterByTags-tagsSelectItem {
   border: 1px solid transparent;
   border-radius: 2px;
   display: inline-block;
@@ -96,12 +96,12 @@
   padding-top: 0.1rem;
 }
 
-.JSREPORT-STUDIO-EXTENSION-TAGS-studio--TagEntityTreeFilterByTags--tagsSelectItemRemove {
+.TAGS-TagEntityTreeFilterByTags-tagsSelectItemRemove {
   cursor: pointer;
   font-weight: bold;
 }
 
-.JSREPORT-STUDIO-EXTENSION-TAGS-studio--TagEntityTreeFilterByTags--tagsSelectItemRemove:before {
+.TAGS-TagEntityTreeFilterByTags-tagsSelectItemRemove:before {
   content: " ×";
 }
 
