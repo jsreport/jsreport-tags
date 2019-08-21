@@ -410,7 +410,7 @@ exports.default = function (tagSet, tagShortId) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"active":"TAGS-TagEntityTreeButtonToolbar-active"};
+module.exports = {"active":"x-tags-TagEntityTreeButtonToolbar-active"};
 
 /***/ }),
 /* 10 */
@@ -2997,7 +2997,7 @@ exports.default = function (hex) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"searchTagsContainer":"TAGS-TagEntityTreeFilterByTags-searchTagsContainer","searchTagsInputBox":"TAGS-TagEntityTreeFilterByTags-searchTagsInputBox","searchTags":"TAGS-TagEntityTreeFilterByTags-searchTags","tagsListContainer":"TAGS-TagEntityTreeFilterByTags-tagsListContainer","tagsList":"TAGS-TagEntityTreeFilterByTags-tagsList","tagsListEmpty":"TAGS-TagEntityTreeFilterByTags-tagsListEmpty","tagsListItem":"TAGS-TagEntityTreeFilterByTags-tagsListItem","tagsSelect":"TAGS-TagEntityTreeFilterByTags-tagsSelect","tagsSelectItem":"TAGS-TagEntityTreeFilterByTags-tagsSelectItem","tagsSelectItemRemove":"TAGS-TagEntityTreeFilterByTags-tagsSelectItemRemove"};
+module.exports = {"searchTagsContainer":"x-tags-TagEntityTreeFilterByTags-searchTagsContainer","searchTagsInputBox":"x-tags-TagEntityTreeFilterByTags-searchTagsInputBox","searchTags":"x-tags-TagEntityTreeFilterByTags-searchTags","tagsListContainer":"x-tags-TagEntityTreeFilterByTags-tagsListContainer","tagsList":"x-tags-TagEntityTreeFilterByTags-tagsList","tagsListEmpty":"x-tags-TagEntityTreeFilterByTags-tagsListEmpty","tagsListItem":"x-tags-TagEntityTreeFilterByTags-tagsListItem","tagsSelect":"x-tags-TagEntityTreeFilterByTags-tagsSelect","tagsSelectItem":"x-tags-TagEntityTreeFilterByTags-tagsSelectItem","tagsSelectItemRemove":"x-tags-TagEntityTreeFilterByTags-tagsSelectItemRemove"};
 
 /***/ }),
 /* 32 */

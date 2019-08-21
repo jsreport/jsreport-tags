@@ -1,24 +1,24 @@
 
-.TAGS-TagEntityTreeButtonToolbar-active {
+.x-tags-TagEntityTreeButtonToolbar-active {
   border-bottom: 0.1rem solid #000;
 }
 
 
-.TAGS-TagEntityTreeFilterByTags-searchTagsContainer {
+.x-tags-TagEntityTreeFilterByTags-searchTagsContainer {
   display: inline-block;
   margin-left: -0.3rem;
   margin-right: -0.3rem;
   position: relative;
 }
 
-.TAGS-TagEntityTreeFilterByTags-searchTagsInputBox {
+.x-tags-TagEntityTreeFilterByTags-searchTagsInputBox {
   display: inline-block;
   padding-left: 0.3rem;
   padding-right: 0.3rem;
   position: relative;
 }
 
-.TAGS-TagEntityTreeFilterByTags-searchTagsInputBox:before {
+.x-tags-TagEntityTreeFilterByTags-searchTagsInputBox:before {
   content: "\f02b";
   margin-right: 0.3rem;
   color: #c6c6c6;
@@ -26,7 +26,7 @@
   position: absolute;
 }
 
-.TAGS-TagEntityTreeFilterByTags-searchTags {
+.x-tags-TagEntityTreeFilterByTags-searchTags {
   border: none;
   border-bottom-width: 0;
   transition: border 0.3s;
@@ -34,18 +34,18 @@
   width: 35px;
 }
 
-.TAGS-TagEntityTreeFilterByTags-searchTags:focus,
-.TAGS-TagEntityTreeFilterByTags-searchTags:hover {
+.x-tags-TagEntityTreeFilterByTags-searchTags:focus,
+.x-tags-TagEntityTreeFilterByTags-searchTags:hover {
   border-bottom-width: 0;
 }
 
-.TAGS-TagEntityTreeFilterByTags-tagsListContainer {
+.x-tags-TagEntityTreeFilterByTags-tagsListContainer {
   display: block;
   max-height: 150px;
   position: relative;
 }
 
-.TAGS-TagEntityTreeFilterByTags-tagsList {
+.x-tags-TagEntityTreeFilterByTags-tagsList {
   background-color: #fff;
   border: 1px solid rgba(0,0,0,.2);
   box-shadow: 0 3px 12px rgba(0,0,0,.15);
@@ -57,13 +57,13 @@
   z-index: 3;
 }
 
-.TAGS-TagEntityTreeFilterByTags-tagsListEmpty {
+.x-tags-TagEntityTreeFilterByTags-tagsListEmpty {
   padding-top: 0.4rem;
   padding-bottom: 0.4rem;
   text-align: center;
 }
 
-.TAGS-TagEntityTreeFilterByTags-tagsListItem {
+.x-tags-TagEntityTreeFilterByTags-tagsListItem {
   color: #000;
   cursor: pointer;
   padding-bottom: 0.4rem;
@@ -72,18 +72,18 @@
   padding-top: 0.4rem;
 }
 
-.TAGS-TagEntityTreeFilterByTags-tagsListItem:hover {
+.x-tags-TagEntityTreeFilterByTags-tagsListItem:hover {
   background-color: #1C97EA;
   color: #fff;
 }
 
-.TAGS-TagEntityTreeFilterByTags-tagsSelect {
+.x-tags-TagEntityTreeFilterByTags-tagsSelect {
   display: inline-block;
   padding-left: 18px;
   width: 150px;
 }
 
-.TAGS-TagEntityTreeFilterByTags-tagsSelectItem {
+.x-tags-TagEntityTreeFilterByTags-tagsSelectItem {
   border: 1px solid transparent;
   border-radius: 2px;
   display: inline-block;
@@ -96,12 +96,12 @@
   padding-top: 0.1rem;
 }
 
-.TAGS-TagEntityTreeFilterByTags-tagsSelectItemRemove {
+.x-tags-TagEntityTreeFilterByTags-tagsSelectItemRemove {
   cursor: pointer;
   font-weight: bold;
 }
 
-.TAGS-TagEntityTreeFilterByTags-tagsSelectItemRemove:before {
+.x-tags-TagEntityTreeFilterByTags-tagsSelectItemRemove:before {
   content: " ×";
 }
 
