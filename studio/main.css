@@ -1,6 +1,6 @@
 
 .x-tags-TagEntityTreeButtonToolbar-active {
-  border-bottom: 0.1rem solid #000;
+  border-bottom: 0.1rem solid $controls-color;
 }
 
 
@@ -21,7 +21,7 @@
 .x-tags-TagEntityTreeFilterByTags-searchTagsInputBox:before {
   content: "\f02b";
   margin-right: 0.3rem;
-  color: #c6c6c6;
+  color: $entityTree-collapseIcon-collapsed-color;
   font-family: FontAwesome;
   position: absolute;
 }
@@ -46,9 +46,9 @@
 }
 
 .x-tags-TagEntityTreeFilterByTags-tagsList {
-  background-color: #fff;
-  border: 1px solid rgba(0,0,0,.2);
-  box-shadow: 0 3px 12px rgba(0,0,0,.15);
+  background-color: $popover-backgroundColor;
+  border: 1px solid $popover-borderColor;
+  box-shadow: 0 3px 12px $popover-shadowColor;
   display: inline-block;
   overflow: auto;
   position: absolute;
@@ -64,7 +64,7 @@
 }
 
 .x-tags-TagEntityTreeFilterByTags-tagsListItem {
-  color: #000;
+  color: $controls-color;
   cursor: pointer;
   padding-bottom: 0.4rem;
   padding-left: 0.3rem;
@@ -73,8 +73,8 @@
 }
 
 .x-tags-TagEntityTreeFilterByTags-tagsListItem:hover {
-  background-color: #1C97EA;
-  color: #fff;
+  background-color: $primary-hover-backgroundColor;
+  color: $primary-hover-color;
 }
 
 .x-tags-TagEntityTreeFilterByTags-tagsSelect {
