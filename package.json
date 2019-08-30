@@ -1,6 +1,6 @@
 {
   "name": "jsreport-tags",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "jsreport extension adding organizational capabilities with tags",
   "main": "index.js",
   "scripts": {
