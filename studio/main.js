@@ -92,6 +92,12 @@ module.exports = Studio.libraries['react'];
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports) {
+
+module.exports = Studio;
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -105,11 +111,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _simpleCheckForValidColor = __webpack_require__(6);
+var _simpleCheckForValidColor = __webpack_require__(7);
 
 var _simpleCheckForValidColor2 = _interopRequireDefault(_simpleCheckForValidColor);
 
-var _colorLuminance = __webpack_require__(7);
+var _colorLuminance = __webpack_require__(8);
 
 var _colorLuminance2 = _interopRequireDefault(_colorLuminance);
 
@@ -156,12 +162,6 @@ ShowColor.propTypes = {
 exports.default = ShowColor;
 
 /***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
-module.exports = Studio;
-
-/***/ }),
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -192,11 +192,37 @@ exports.default = emitter;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+exports.default = function (tagSet, tagShortId) {
+  var tag = void 0;
+
+  var found = tagSet.some(function (tagInSet) {
+    tag = tagInSet;
+    return tagInSet.shortid === tagShortId;
+  });
+
+  if (found) {
+    return tag;
+  }
+
+  return undefined;
+};
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var current = exports.current = void 0;
 var filterTags = exports.filterTags = void 0;
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -210,9 +236,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _jsreportStudio = __webpack_require__(2);
+var _jsreportStudio = __webpack_require__(1);
 
-var _ShowColor = __webpack_require__(1);
+var _ShowColor = __webpack_require__(2);
 
 var _ShowColor2 = _interopRequireDefault(_ShowColor);
 
@@ -327,7 +353,7 @@ ColorPicketTrigger.propTypes = {
 exports.default = ColorPicketTrigger;
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -345,7 +371,7 @@ var simpleCheckForValidColor = function simpleCheckForValidColor(color) {
 exports.default = simpleCheckForValidColor;
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -380,32 +406,6 @@ exports.default = function (hex, lum) {
 };
 
 /***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-exports.default = function (tagSet, tagShortId) {
-  var tag = void 0;
-
-  var found = tagSet.some(function (tagInSet) {
-    tag = tagInSet;
-    return tagInSet.shortid === tagShortId;
-  });
-
-  if (found) {
-    return tag;
-  }
-
-  return undefined;
-};
-
-/***/ }),
 /* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -419,7 +419,7 @@ module.exports = {"active":"x-tags-TagEntityTreeButtonToolbar-active"};
 "use strict";
 
 
-var _jsreportStudio = __webpack_require__(2);
+var _jsreportStudio = __webpack_require__(1);
 
 var _jsreportStudio2 = _interopRequireDefault(_jsreportStudio);
 
@@ -463,7 +463,7 @@ var _emitter = __webpack_require__(3);
 
 var _emitter2 = _interopRequireDefault(_emitter);
 
-var _organizeState = __webpack_require__(4);
+var _organizeState = __webpack_require__(5);
 
 var organizeState = _interopRequireWildcard(_organizeState);
 
@@ -546,11 +546,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _jsreportStudio = __webpack_require__(2);
+var _jsreportStudio = __webpack_require__(1);
 
 var _jsreportStudio2 = _interopRequireDefault(_jsreportStudio);
 
-var _ColorPickerTrigger = __webpack_require__(5);
+var _ColorPickerTrigger = __webpack_require__(6);
 
 var _ColorPickerTrigger2 = _interopRequireDefault(_ColorPickerTrigger);
 
@@ -852,7 +852,7 @@ var _lodash = __webpack_require__(14);
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
-var _simpleCheckForValidColor = __webpack_require__(6);
+var _simpleCheckForValidColor = __webpack_require__(7);
 
 var _simpleCheckForValidColor2 = _interopRequireDefault(_simpleCheckForValidColor);
 
@@ -1558,7 +1558,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _ShowColor = __webpack_require__(1);
+var _ShowColor = __webpack_require__(2);
 
 var _ShowColor2 = _interopRequireDefault(_ShowColor);
 
@@ -1651,11 +1651,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _ShowColor = __webpack_require__(1);
+var _ShowColor = __webpack_require__(2);
 
 var _ShowColor2 = _interopRequireDefault(_ShowColor);
 
-var _ColorPickerTrigger = __webpack_require__(5);
+var _ColorPickerTrigger = __webpack_require__(6);
 
 var _ColorPickerTrigger2 = _interopRequireDefault(_ColorPickerTrigger);
 
@@ -1787,11 +1787,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _ShowColor = __webpack_require__(1);
+var _ShowColor = __webpack_require__(2);
 
 var _ShowColor2 = _interopRequireDefault(_ShowColor);
 
-var _jsreportStudio = __webpack_require__(2);
+var _jsreportStudio = __webpack_require__(1);
 
 var _jsreportStudio2 = _interopRequireDefault(_jsreportStudio);
 
@@ -1953,7 +1953,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _jsreportStudio = __webpack_require__(2);
+var _jsreportStudio = __webpack_require__(1);
 
 var _jsreportStudio2 = _interopRequireDefault(_jsreportStudio);
 
@@ -1961,7 +1961,7 @@ var _emitter = __webpack_require__(3);
 
 var _emitter2 = _interopRequireDefault(_emitter);
 
-var _findTagInSet = __webpack_require__(8);
+var _findTagInSet = __webpack_require__(4);
 
 var _findTagInSet2 = _interopRequireDefault(_findTagInSet);
 
@@ -2357,7 +2357,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _organizeState = __webpack_require__(4);
+var _organizeState = __webpack_require__(5);
 
 var organizeState = _interopRequireWildcard(_organizeState);
 
@@ -2449,11 +2449,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _jsreportStudio = __webpack_require__(2);
+var _jsreportStudio = __webpack_require__(1);
 
 var _jsreportStudio2 = _interopRequireDefault(_jsreportStudio);
 
-var _organizeState = __webpack_require__(4);
+var _organizeState = __webpack_require__(5);
 
 var organizeState = _interopRequireWildcard(_organizeState);
 
@@ -2605,7 +2605,7 @@ var _reactList = __webpack_require__(28);
 
 var _reactList2 = _interopRequireDefault(_reactList);
 
-var _colorLuminance = __webpack_require__(7);
+var _colorLuminance = __webpack_require__(8);
 
 var _colorLuminance2 = _interopRequireDefault(_colorLuminance);
 
@@ -2613,7 +2613,7 @@ var _getColorLuminance = __webpack_require__(29);
 
 var _getColorLuminance2 = _interopRequireDefault(_getColorLuminance);
 
-var _ShowColor = __webpack_require__(1);
+var _ShowColor = __webpack_require__(2);
 
 var _ShowColor2 = _interopRequireDefault(_ShowColor);
 
@@ -3016,11 +3016,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _ShowColor = __webpack_require__(1);
+var _ShowColor = __webpack_require__(2);
 
 var _ShowColor2 = _interopRequireDefault(_ShowColor);
 
-var _findTagInSet = __webpack_require__(8);
+var _findTagInSet = __webpack_require__(4);
 
 var _findTagInSet2 = _interopRequireDefault(_findTagInSet);
 
@@ -3096,9 +3096,17 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _ShowColor = __webpack_require__(1);
+var _jsreportStudio = __webpack_require__(1);
+
+var _jsreportStudio2 = _interopRequireDefault(_jsreportStudio);
+
+var _ShowColor = __webpack_require__(2);
 
 var _ShowColor2 = _interopRequireDefault(_ShowColor);
+
+var _findTagInSet = __webpack_require__(4);
+
+var _findTagInSet2 = _interopRequireDefault(_findTagInSet);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3120,21 +3128,42 @@ var TagEntityTreeTagGroupItem = function (_Component) {
   _createClass(TagEntityTreeTagGroupItem, [{
     key: 'render',
     value: function render() {
-      var _props = this.props,
-          name = _props.name,
-          __entitySet = _props.__entitySet,
-          color = _props.color;
+      var __entitySet = this.props.__entitySet;
 
 
-      if (__entitySet !== 'tags') {
+      if (__entitySet !== 'tags' && __entitySet !== 'folders') {
         return null;
       }
 
+      var tags = [];
+
+      if (__entitySet === 'tags') {
+        tags.push({ name: this.props.name, shortid: this.props.shortid, color: this.props.color });
+      } else {
+        tags = this.props.tags || [];
+
+        tags = tags.map(function (t) {
+          return (0, _findTagInSet2.default)(_jsreportStudio2.default.getReferences().tags, t.shortid);
+        });
+      }
+
+      var tagsLength = tags.length;
+
       return _react2.default.createElement(
-        'span',
-        { title: name, style: { display: 'inline-block', marginLeft: '0.2rem', marginRight: '0.2rem' } },
-        _react2.default.createElement(_ShowColor2.default, { color: color, width: 8, height: 15 }),
-        '\xA0'
+        'div',
+        { style: { display: 'inline-block', marginLeft: '0.2rem', marginRight: '0.2rem' } },
+        tags.map(function (tag, tagIndex) {
+          if (!tag) {
+            return;
+          }
+
+          return _react2.default.createElement(
+            'span',
+            { key: tag.shortid, title: tag.name },
+            _react2.default.createElement(_ShowColor2.default, { color: tag.color, width: 8, height: 15 }),
+            tagIndex !== tagsLength - 1 ? ' ' : null
+          );
+        })
       );
     }
   }]);
