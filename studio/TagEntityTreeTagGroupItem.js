@@ -16,7 +16,7 @@ class TagEntityTreeTagGroupItem extends Component {
     if (__entitySet === 'tags') {
       tags.push({ name: this.props.name, shortid: this.props.shortid, color: this.props.color })
     } else {
-      tags = this.props.tags || []
+      tags = this.props.tags || []
 
       tags = tags.map((t) => {
         return findTagInSet(Studio.getReferences().tags, t.shortid)
