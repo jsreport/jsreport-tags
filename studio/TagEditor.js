@@ -1,9 +1,18 @@
-import React, { Component, PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import ShowColor from './ShowColor'
 
 export default class TagEditor extends Component {
   render () {
     const { entity } = this.props
+
+    let description
+
+    if (entity.description) {
+      description = entity.description
+    } else {
+      description = <i>{'(no description for this tag)'}</i>
+    }
 
     return (
       <div className='custom-editor'>
@@ -12,7 +21,7 @@ export default class TagEditor extends Component {
         </div>
         <div>
           Description: <br />
-          <p>{entity.description || <i>(no description for this tag)</i>}</p>
+          <p>{description}</p>
         </div>
         <div>
           Color: <ShowColor color={entity.color} />

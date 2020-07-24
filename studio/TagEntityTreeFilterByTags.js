@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import ReactList from 'react-list'
 import colorLuminance from './colorLuminance'
 import getColorLuminance from './getColorLuminance'

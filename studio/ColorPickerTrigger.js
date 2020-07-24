@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import React from 'react'
 import { Popover } from 'jsreport-studio'
 import ShowColor from './ShowColor'
 import ColorPicker from './ColorPicker'

@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 10);
+/******/ 	return __webpack_require__(__webpack_require__.s = 11);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -107,15 +107,19 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _propTypes = __webpack_require__(3);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _simpleCheckForValidColor = __webpack_require__(7);
+var _simpleCheckForValidColor = __webpack_require__(8);
 
 var _simpleCheckForValidColor2 = _interopRequireDefault(_simpleCheckForValidColor);
 
-var _colorLuminance = __webpack_require__(8);
+var _colorLuminance = __webpack_require__(9);
 
 var _colorLuminance2 = _interopRequireDefault(_colorLuminance);
 
@@ -153,16 +157,22 @@ var ShowColor = function ShowColor(props) {
 };
 
 ShowColor.propTypes = {
-  color: _react.PropTypes.string.isRequired,
-  borderColor: _react.PropTypes.string,
-  height: _react.PropTypes.number,
-  width: _react.PropTypes.number
+  color: _propTypes2.default.string.isRequired,
+  borderColor: _propTypes2.default.string,
+  height: _propTypes2.default.number,
+  width: _propTypes2.default.number
 };
 
 exports.default = ShowColor;
 
 /***/ }),
 /* 3 */
+/***/ (function(module, exports) {
+
+module.exports = Studio.libraries['prop-types'];
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -172,7 +182,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _mitt = __webpack_require__(23);
+var _mitt = __webpack_require__(24);
 
 var _mitt2 = _interopRequireDefault(_mitt);
 
@@ -183,7 +193,7 @@ var emitter = (0, _mitt2.default)();
 exports.default = emitter;
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -209,7 +219,7 @@ exports.default = function (tagSet, tagShortId) {
 };
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -222,7 +232,7 @@ var current = exports.current = void 0;
 var filterTags = exports.filterTags = void 0;
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -231,6 +241,10 @@ var filterTags = exports.filterTags = void 0;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _propTypes = __webpack_require__(3);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _react = __webpack_require__(0);
 
@@ -242,7 +256,7 @@ var _ShowColor = __webpack_require__(2);
 
 var _ShowColor2 = _interopRequireDefault(_ShowColor);
 
-var _ColorPicker = __webpack_require__(12);
+var _ColorPicker = __webpack_require__(13);
 
 var _ColorPicker2 = _interopRequireDefault(_ColorPicker);
 
@@ -335,25 +349,25 @@ var ColorPicketTrigger = function ColorPicketTrigger(props) {
 };
 
 ColorPicketTrigger.propTypes = {
-  displayColorPicker: _react.PropTypes.bool.isRequired,
-  color: _react.PropTypes.string,
-  containerStyles: _react.PropTypes.object,
-  onClickColorTrigger: _react.PropTypes.func,
-  onCloseColorPicker: _react.PropTypes.func.isRequired,
-  onInputChange: _react.PropTypes.func,
-  onChangeSelectionColor: _react.PropTypes.func,
+  displayColorPicker: _propTypes2.default.bool.isRequired,
+  color: _propTypes2.default.string,
+  containerStyles: _propTypes2.default.object,
+  onClickColorTrigger: _propTypes2.default.func,
+  onCloseColorPicker: _propTypes2.default.func.isRequired,
+  onInputChange: _propTypes2.default.func,
+  onChangeSelectionColor: _propTypes2.default.func,
   // i know.. it is a shame to decide the position of the color picker
   // in this way, maybe in the future it can be calculated based
   // on the position of the button trigger
   // using a "position" prop to specify the direction
-  translateXColorPickerFromTrigger: _react.PropTypes.string,
-  translateYColorPickerFromTrigger: _react.PropTypes.string
+  translateXColorPickerFromTrigger: _propTypes2.default.string,
+  translateYColorPickerFromTrigger: _propTypes2.default.string
 };
 
 exports.default = ColorPicketTrigger;
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -371,7 +385,7 @@ var simpleCheckForValidColor = function simpleCheckForValidColor(color) {
 exports.default = simpleCheckForValidColor;
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -406,14 +420,14 @@ exports.default = function (hex, lum) {
 };
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 module.exports = {"active":"x-tags-TagEntityTreeButtonToolbar-active"};
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -423,51 +437,51 @@ var _jsreportStudio = __webpack_require__(1);
 
 var _jsreportStudio2 = _interopRequireDefault(_jsreportStudio);
 
-var _NewTagModal = __webpack_require__(11);
+var _NewTagModal = __webpack_require__(12);
 
 var _NewTagModal2 = _interopRequireDefault(_NewTagModal);
 
-var _TagEditor = __webpack_require__(19);
+var _TagEditor = __webpack_require__(20);
 
 var _TagEditor2 = _interopRequireDefault(_TagEditor);
 
-var _TagProperties = __webpack_require__(20);
+var _TagProperties = __webpack_require__(21);
 
 var _TagProperties2 = _interopRequireDefault(_TagProperties);
 
-var _EntityTagProperties = __webpack_require__(21);
+var _EntityTagProperties = __webpack_require__(22);
 
 var _EntityTagProperties2 = _interopRequireDefault(_EntityTagProperties);
 
-var _EntityTreeTagOrganizer = __webpack_require__(22);
+var _EntityTreeTagOrganizer = __webpack_require__(23);
 
 var _EntityTreeTagOrganizer2 = _interopRequireDefault(_EntityTreeTagOrganizer);
 
-var _TagEntityTreeOrganizeButtonToolbar = __webpack_require__(25);
+var _TagEntityTreeOrganizeButtonToolbar = __webpack_require__(26);
 
 var _TagEntityTreeOrganizeButtonToolbar2 = _interopRequireDefault(_TagEntityTreeOrganizeButtonToolbar);
 
-var _TagEntityTreeFilterButtonToolbar = __webpack_require__(26);
+var _TagEntityTreeFilterButtonToolbar = __webpack_require__(27);
 
 var _TagEntityTreeFilterButtonToolbar2 = _interopRequireDefault(_TagEntityTreeFilterButtonToolbar);
 
-var _TagEntityTreeItem = __webpack_require__(32);
+var _TagEntityTreeItem = __webpack_require__(33);
 
 var _TagEntityTreeItem2 = _interopRequireDefault(_TagEntityTreeItem);
 
-var _TagEntityTreeTagGroupItem = __webpack_require__(33);
+var _TagEntityTreeTagGroupItem = __webpack_require__(34);
 
 var _TagEntityTreeTagGroupItem2 = _interopRequireDefault(_TagEntityTreeTagGroupItem);
 
-var _emitter = __webpack_require__(3);
+var _emitter = __webpack_require__(4);
 
 var _emitter2 = _interopRequireDefault(_emitter);
 
-var _organizeState = __webpack_require__(5);
+var _organizeState = __webpack_require__(6);
 
 var organizeState = _interopRequireWildcard(_organizeState);
 
-var _filterItemWithTagsStrategy = __webpack_require__(34);
+var _filterItemWithTagsStrategy = __webpack_require__(35);
 
 var _filterItemWithTagsStrategy2 = _interopRequireDefault(_filterItemWithTagsStrategy);
 
@@ -530,7 +544,7 @@ _jsreportStudio2.default.addEntityTreeItemComponent(_TagEntityTreeTagGroupItem2.
 _jsreportStudio2.default.entityTreeFilterItemResolvers.push(_filterItemWithTagsStrategy2.default);
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -542,6 +556,10 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _propTypes = __webpack_require__(3);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
@@ -550,7 +568,7 @@ var _jsreportStudio = __webpack_require__(1);
 
 var _jsreportStudio2 = _interopRequireDefault(_jsreportStudio);
 
-var _ColorPickerTrigger = __webpack_require__(6);
+var _ColorPickerTrigger = __webpack_require__(7);
 
 var _ColorPickerTrigger2 = _interopRequireDefault(_ColorPickerTrigger);
 
@@ -803,11 +821,11 @@ exports.default = NewTagModal;
 
 
 NewTagModal.propTypes = {
-  close: _react.PropTypes.func.isRequired
+  close: _propTypes2.default.func.isRequired
 };
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -817,11 +835,11 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _ColorWrap = __webpack_require__(13);
+var _ColorWrap = __webpack_require__(14);
 
 var _ColorWrap2 = _interopRequireDefault(_ColorWrap);
 
-var _Picker = __webpack_require__(16);
+var _Picker = __webpack_require__(17);
 
 var _Picker2 = _interopRequireDefault(_Picker);
 
@@ -830,7 +848,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = (0, _ColorWrap2.default)(_Picker2.default);
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -848,11 +866,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _lodash = __webpack_require__(14);
+var _lodash = __webpack_require__(15);
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
-var _simpleCheckForValidColor = __webpack_require__(7);
+var _simpleCheckForValidColor = __webpack_require__(8);
 
 var _simpleCheckForValidColor2 = _interopRequireDefault(_simpleCheckForValidColor);
 
@@ -934,7 +952,7 @@ var ColorWrap = function ColorWrap(Picker) {
 exports.default = ColorWrap;
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {/**
@@ -1315,10 +1333,10 @@ function toNumber(value) {
 
 module.exports = debounce;
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(15)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(16)))
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports) {
 
 var g;
@@ -1344,7 +1362,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1356,11 +1374,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _handleHover = __webpack_require__(17);
+var _handleHover = __webpack_require__(18);
 
 var _handleHover2 = _interopRequireDefault(_handleHover);
 
-var _Swatch = __webpack_require__(18);
+var _Swatch = __webpack_require__(19);
 
 var _Swatch2 = _interopRequireDefault(_Swatch);
 
@@ -1434,7 +1452,7 @@ Picker.defaultProps = {
 exports.default = Picker;
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1506,7 +1524,7 @@ var handleHover = function handleHover(Component) {
 exports.default = handleHover;
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1542,7 +1560,7 @@ var Swatch = function Swatch(_ref) {
 exports.default = Swatch;
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1553,6 +1571,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _propTypes = __webpack_require__(3);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _react = __webpack_require__(0);
 
@@ -1585,6 +1607,18 @@ var TagEditor = function (_Component) {
       var entity = this.props.entity;
 
 
+      var description = void 0;
+
+      if (entity.description) {
+        description = entity.description;
+      } else {
+        description = _react2.default.createElement(
+          'i',
+          null,
+          '(no description for this tag)'
+        );
+      }
+
       return _react2.default.createElement(
         'div',
         { className: 'custom-editor' },
@@ -1607,11 +1641,7 @@ var TagEditor = function (_Component) {
           _react2.default.createElement(
             'p',
             null,
-            entity.description || _react2.default.createElement(
-              'i',
-              null,
-              '(no description for this tag)'
-            )
+            description
           )
         ),
         _react2.default.createElement(
@@ -1631,11 +1661,11 @@ exports.default = TagEditor;
 
 
 TagEditor.propTypes = {
-  entity: _react.PropTypes.object.isRequired
+  entity: _propTypes2.default.object.isRequired
 };
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1655,7 +1685,7 @@ var _ShowColor = __webpack_require__(2);
 
 var _ShowColor2 = _interopRequireDefault(_ShowColor);
 
-var _ColorPickerTrigger = __webpack_require__(6);
+var _ColorPickerTrigger = __webpack_require__(7);
 
 var _ColorPickerTrigger2 = _interopRequireDefault(_ColorPickerTrigger);
 
@@ -1769,7 +1799,7 @@ var TagProperties = function (_Component) {
 exports.default = TagProperties;
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1937,7 +1967,7 @@ var EntityTagProperties = function (_Component) {
 exports.default = EntityTagProperties;
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1957,11 +1987,11 @@ var _jsreportStudio = __webpack_require__(1);
 
 var _jsreportStudio2 = _interopRequireDefault(_jsreportStudio);
 
-var _emitter = __webpack_require__(3);
+var _emitter = __webpack_require__(4);
 
 var _emitter2 = _interopRequireDefault(_emitter);
 
-var _findTagInSet = __webpack_require__(4);
+var _findTagInSet = __webpack_require__(5);
 
 var _findTagInSet2 = _interopRequireDefault(_findTagInSet);
 
@@ -1973,7 +2003,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var _require = __webpack_require__(24),
+var _require = __webpack_require__(25),
     noTagGroupName = _require.noTagGroupName,
     tagsGroupName = _require.tagsGroupName;
 
@@ -2254,7 +2284,7 @@ var EntityTreeTagOrganizer = function (_Component) {
 exports.default = EntityTreeTagOrganizer;
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2326,7 +2356,7 @@ function mitt(all                 ) {
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2341,7 +2371,7 @@ module.exports.noTagGroupName = noTagGroupName;
 module.exports.tagsGroupName = tagsGroupName;
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2357,15 +2387,15 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _organizeState = __webpack_require__(5);
+var _organizeState = __webpack_require__(6);
 
 var organizeState = _interopRequireWildcard(_organizeState);
 
-var _emitter = __webpack_require__(3);
+var _emitter = __webpack_require__(4);
 
 var _emitter2 = _interopRequireDefault(_emitter);
 
-var _TagEntityTreeButtonToolbar = __webpack_require__(9);
+var _TagEntityTreeButtonToolbar = __webpack_require__(10);
 
 var _TagEntityTreeButtonToolbar2 = _interopRequireDefault(_TagEntityTreeButtonToolbar);
 
@@ -2433,7 +2463,7 @@ var TagEntityTreeOrganizeButtonToolbar = function (_Component) {
 exports.default = TagEntityTreeOrganizeButtonToolbar;
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2453,19 +2483,19 @@ var _jsreportStudio = __webpack_require__(1);
 
 var _jsreportStudio2 = _interopRequireDefault(_jsreportStudio);
 
-var _organizeState = __webpack_require__(5);
+var _organizeState = __webpack_require__(6);
 
 var organizeState = _interopRequireWildcard(_organizeState);
 
-var _emitter = __webpack_require__(3);
+var _emitter = __webpack_require__(4);
 
 var _emitter2 = _interopRequireDefault(_emitter);
 
-var _TagEntityTreeFilterByTags = __webpack_require__(27);
+var _TagEntityTreeFilterByTags = __webpack_require__(28);
 
 var _TagEntityTreeFilterByTags2 = _interopRequireDefault(_TagEntityTreeFilterByTags);
 
-var _TagEntityTreeButtonToolbar = __webpack_require__(9);
+var _TagEntityTreeButtonToolbar = __webpack_require__(10);
 
 var _TagEntityTreeButtonToolbar2 = _interopRequireDefault(_TagEntityTreeButtonToolbar);
 
@@ -2585,7 +2615,7 @@ var TagEntityTreeFilterButtonToolbar = function (_Component) {
 exports.default = TagEntityTreeFilterButtonToolbar;
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2597,19 +2627,23 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _propTypes = __webpack_require__(3);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactList = __webpack_require__(28);
+var _reactList = __webpack_require__(29);
 
 var _reactList2 = _interopRequireDefault(_reactList);
 
-var _colorLuminance = __webpack_require__(8);
+var _colorLuminance = __webpack_require__(9);
 
 var _colorLuminance2 = _interopRequireDefault(_colorLuminance);
 
-var _getColorLuminance = __webpack_require__(29);
+var _getColorLuminance = __webpack_require__(30);
 
 var _getColorLuminance2 = _interopRequireDefault(_getColorLuminance);
 
@@ -2617,7 +2651,7 @@ var _ShowColor = __webpack_require__(2);
 
 var _ShowColor2 = _interopRequireDefault(_ShowColor);
 
-var _TagEntityTreeFilterByTags = __webpack_require__(31);
+var _TagEntityTreeFilterByTags = __webpack_require__(32);
 
 var _TagEntityTreeFilterByTags2 = _interopRequireDefault(_TagEntityTreeFilterByTags);
 
@@ -2890,30 +2924,30 @@ TagEntityTreeFilterByTags.defaultProps = {
 };
 
 TagEntityTreeFilterByTags.propTypes = {
-  tags: _react.PropTypes.arrayOf(_react.PropTypes.shape({
-    shortid: _react.PropTypes.string,
-    name: _react.PropTypes.string,
-    color: _react.PropTypes.string
+  tags: _propTypes2.default.arrayOf(_propTypes2.default.shape({
+    shortid: _propTypes2.default.string,
+    name: _propTypes2.default.string,
+    color: _propTypes2.default.string
   })),
-  selectedTags: _react.PropTypes.arrayOf(_react.PropTypes.shape({
-    shortid: _react.PropTypes.string,
-    name: _react.PropTypes.string,
-    color: _react.PropTypes.string
+  selectedTags: _propTypes2.default.arrayOf(_propTypes2.default.shape({
+    shortid: _propTypes2.default.string,
+    name: _propTypes2.default.string,
+    color: _propTypes2.default.string
   })),
-  onTagSelectChange: _react.PropTypes.func,
-  onFilterClose: _react.PropTypes.func
+  onTagSelectChange: _propTypes2.default.func,
+  onFilterClose: _propTypes2.default.func
 };
 
 exports.default = TagEntityTreeFilterByTags;
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports) {
 
 module.exports = Studio.libraries['react-list'];
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2923,7 +2957,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _hexToRgb = __webpack_require__(30);
+var _hexToRgb = __webpack_require__(31);
 
 var _hexToRgb2 = _interopRequireDefault(_hexToRgb);
 
@@ -2965,7 +2999,7 @@ exports.default = function (hex) {
 };
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2993,14 +3027,14 @@ exports.default = function (hex) {
 };
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 module.exports = {"searchTagsContainer":"x-tags-TagEntityTreeFilterByTags-searchTagsContainer","searchTagsInputBox":"x-tags-TagEntityTreeFilterByTags-searchTagsInputBox","searchTags":"x-tags-TagEntityTreeFilterByTags-searchTags","tagsListContainer":"x-tags-TagEntityTreeFilterByTags-tagsListContainer","tagsList":"x-tags-TagEntityTreeFilterByTags-tagsList","tagsListEmpty":"x-tags-TagEntityTreeFilterByTags-tagsListEmpty","tagsListItem":"x-tags-TagEntityTreeFilterByTags-tagsListItem","tagsSelect":"x-tags-TagEntityTreeFilterByTags-tagsSelect","tagsSelectItem":"x-tags-TagEntityTreeFilterByTags-tagsSelectItem","tagsSelectItemRemove":"x-tags-TagEntityTreeFilterByTags-tagsSelectItemRemove"};
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3020,7 +3054,7 @@ var _ShowColor = __webpack_require__(2);
 
 var _ShowColor2 = _interopRequireDefault(_ShowColor);
 
-var _findTagInSet = __webpack_require__(4);
+var _findTagInSet = __webpack_require__(5);
 
 var _findTagInSet2 = _interopRequireDefault(_findTagInSet);
 
@@ -3080,7 +3114,7 @@ var TagEntityTreeItem = function (_Component) {
 exports.default = TagEntityTreeItem;
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3104,7 +3138,7 @@ var _ShowColor = __webpack_require__(2);
 
 var _ShowColor2 = _interopRequireDefault(_ShowColor);
 
-var _findTagInSet = __webpack_require__(4);
+var _findTagInSet = __webpack_require__(5);
 
 var _findTagInSet2 = _interopRequireDefault(_findTagInSet);
 
@@ -3174,7 +3208,7 @@ var TagEntityTreeTagGroupItem = function (_Component) {
 exports.default = TagEntityTreeTagGroupItem;
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
