@@ -912,13 +912,6 @@ var ColorWrap = function ColorWrap(Picker) {
     }
 
     _createClass(ColorPicker, [{
-      key: 'componentWillReceiveProps',
-      value: function componentWillReceiveProps(nextProps) {
-        this.setState(_extends({}, colorToState(nextProps.color), {
-          visible: nextProps.display
-        }));
-      }
-    }, {
       key: 'handleChange',
       value: function handleChange(data, event) {
         var isValidColor = (0, _simpleCheckForValidColor2.default)(data.hex);
@@ -936,6 +929,13 @@ var ColorWrap = function ColorWrap(Picker) {
         return _react2.default.createElement(Picker, _extends({}, this.props, this.state, {
           onChange: this.handleChange
         }));
+      }
+    }], [{
+      key: 'getDerivedStateFromProps',
+      value: function getDerivedStateFromProps(props) {
+        return _extends({}, colorToState(props.color), {
+          visible: props.display
+        });
       }
     }]);
 

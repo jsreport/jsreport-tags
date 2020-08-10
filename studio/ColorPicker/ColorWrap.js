@@ -28,11 +28,11 @@ const ColorWrap = (Picker) => {
       this.handleChange = this.handleChange.bind(this)
     }
 
-    componentWillReceiveProps (nextProps) {
-      this.setState({
-        ...colorToState(nextProps.color),
-        visible: nextProps.display
-      })
+    static getDerivedStateFromProps (props) {
+      return {
+        ...colorToState(props.color),
+        visible: props.display
+      }
     }
 
     handleChange (data, event) {
