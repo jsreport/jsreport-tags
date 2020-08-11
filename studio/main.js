@@ -590,6 +590,9 @@ var NewTagModal = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (NewTagModal.__proto__ || Object.getPrototypeOf(NewTagModal)).call(this, props));
 
+    _this.nameRef = _react2.default.createRef();
+    _this.descriptionRef = _react2.default.createRef();
+
     _this.state = {
       displayColorPicker: false,
       selectedColor: '',
@@ -607,7 +610,7 @@ var NewTagModal = function (_Component) {
       var _this2 = this;
 
       setTimeout(function () {
-        return _this2.refs.name.focus();
+        return _this2.nameRef.current.focus();
       }, 0);
     }
   }, {
@@ -628,7 +631,7 @@ var NewTagModal = function (_Component) {
               case 0:
                 entity = {};
 
-                if (this.refs.name.value) {
+                if (this.nameRef.current.value) {
                   _context.next = 3;
                   break;
                 }
@@ -653,9 +656,9 @@ var NewTagModal = function (_Component) {
                   entity = Object.assign(entity, this.props.options.defaults);
                 }
 
-                entity.name = this.refs.name.value;
+                entity.name = this.nameRef.current.value;
                 entity.color = this.state.selectedColor;
-                entity.description = this.refs.description.value;
+                entity.description = this.descriptionRef.current.value;
 
                 _context.prev = 9;
                 _context.next = 12;
@@ -719,7 +722,7 @@ var NewTagModal = function (_Component) {
             null,
             'Name'
           ),
-          _react2.default.createElement('input', { type: 'text', name: 'name', ref: 'name', placeholder: 'tag name...', onKeyPress: function onKeyPress(e) {
+          _react2.default.createElement('input', { type: 'text', name: 'name', ref: this.nameRef, placeholder: 'tag name...', onKeyPress: function onKeyPress(e) {
               return _this3.handleKeyPress(e);
             } })
         ),
@@ -763,7 +766,7 @@ var NewTagModal = function (_Component) {
           ),
           _react2.default.createElement('textarea', {
             name: 'description',
-            ref: 'description',
+            ref: this.descriptionRef,
             placeholder: 'You can add more details about this tag here...',
             rows: '4',
             style: { resize: 'vertical' }
@@ -2673,6 +2676,10 @@ var TagEntityTreeFilterByTags = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (TagEntityTreeFilterByTags.__proto__ || Object.getPrototypeOf(TagEntityTreeFilterByTags)).call(this, props));
 
+    _this.tagSelectionRef = _react2.default.createRef();
+    _this.tagSelectionInputRef = _react2.default.createRef();
+    _this.tagListRef = _react2.default.createRef();
+
     _this.state = {
       showTagsList: true,
       filterText: ''
@@ -2714,8 +2721,8 @@ var TagEntityTreeFilterByTags = function (_Component) {
   }, {
     key: 'focus',
     value: function focus() {
-      if (this.refs.tagSelectionInput && typeof this.refs.tagSelectionInput.focus === 'function') {
-        this.refs.tagSelectionInput.focus();
+      if (this.tagSelectionInputRef.current && typeof this.tagSelectionInputRef.current.focus === 'function') {
+        this.tagSelectionInputRef.current.focus();
       }
     }
   }, {
@@ -2748,7 +2755,7 @@ var TagEntityTreeFilterByTags = function (_Component) {
     value: function onTagSelectionClick(ev) {
       // if the tag selection area is directly clicked
       // focus the input
-      if (ev.target === this.refs.tagSelection) {
+      if (ev.target === this.tagSelectionRef.current) {
         this.focus();
       }
     }
@@ -2860,7 +2867,7 @@ var TagEntityTreeFilterByTags = function (_Component) {
           { className: _TagEntityTreeFilterByTags2.default.searchTagsInputBox },
           _react2.default.createElement(
             'div',
-            { ref: 'tagSelection', className: _TagEntityTreeFilterByTags2.default.tagsSelect, onClick: this.onTagSelectionClick },
+            { ref: this.tagSelectionRef, className: _TagEntityTreeFilterByTags2.default.tagsSelect, onClick: this.onTagSelectionClick },
             _react2.default.createElement(
               'span',
               null,
@@ -2881,7 +2888,7 @@ var TagEntityTreeFilterByTags = function (_Component) {
                 );
               }),
               _react2.default.createElement('input', {
-                ref: 'tagSelectionInput',
+                ref: this.tagSelectionInputRef,
                 type: 'text',
                 placeholder: selectedTags.length === 0 ? 'select a tag' : '',
                 className: _TagEntityTreeFilterByTags2.default.searchTags,
@@ -2895,7 +2902,7 @@ var TagEntityTreeFilterByTags = function (_Component) {
         _react2.default.createElement(
           'div',
           {
-            ref: 'tagList',
+            ref: this.tagListRef,
             className: _TagEntityTreeFilterByTags2.default.tagsListContainer,
             style: stylesForTagsList
           },

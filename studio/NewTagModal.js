@@ -7,6 +7,9 @@ export default class NewTagModal extends Component {
   constructor (props) {
     super(props)
 
+    this.nameRef = React.createRef()
+    this.descriptionRef = React.createRef()
+
     this.state = {
       displayColorPicker: false,
       selectedColor: '',
@@ -16,7 +19,7 @@ export default class NewTagModal extends Component {
 
   // the modal component for some reason after open focuses the panel itself
   componentDidMount () {
-    setTimeout(() => this.refs.name.focus(), 0)
+    setTimeout(() => this.nameRef.current.focus(), 0)
   }
 
   handleKeyPress (e) {
@@ -28,7 +31,7 @@ export default class NewTagModal extends Component {
   async createTag () {
     let entity = {}
 
-    if (!this.refs.name.value) {
+    if (!this.nameRef.current.value) {
       return this.setState({
         error: 'name field cannot be empty'
       })
@@ -44,9 +47,9 @@ export default class NewTagModal extends Component {
       entity = Object.assign(entity, this.props.options.defaults)
     }
 
-    entity.name = this.refs.name.value
+    entity.name = this.nameRef.current.value
     entity.color = this.state.selectedColor
-    entity.description = this.refs.description.value
+    entity.description = this.descriptionRef.current.value
 
     try {
       let response = await Studio.api.post('/odata/tags', {
@@ -76,7 +79,7 @@ export default class NewTagModal extends Component {
       <div>
         <div className='form-group'>
           <label>Name</label>
-          <input type='text' name='name' ref='name' placeholder='tag name...' onKeyPress={(e) => this.handleKeyPress(e)} />
+          <input type='text' name='name' ref={this.nameRef} placeholder='tag name...' onKeyPress={(e) => this.handleKeyPress(e)} />
         </div>
         <div className='form-group'>
           <label>Color</label>
@@ -97,7 +100,7 @@ export default class NewTagModal extends Component {
           <label>Description</label>
           <textarea
             name='description'
-            ref='description'
+            ref={this.descriptionRef}
             placeholder='You can add more details about this tag here...'
             rows='4'
             style={{ resize: 'vertical' }}

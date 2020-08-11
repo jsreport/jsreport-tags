@@ -10,6 +10,10 @@ class TagEntityTreeFilterByTags extends Component {
   constructor (props) {
     super(props)
 
+    this.tagSelectionRef = React.createRef()
+    this.tagSelectionInputRef = React.createRef()
+    this.tagListRef = React.createRef()
+
     this.state = {
       showTagsList: true,
       filterText: ''
@@ -44,8 +48,8 @@ class TagEntityTreeFilterByTags extends Component {
   }
 
   focus () {
-    if (this.refs.tagSelectionInput && typeof this.refs.tagSelectionInput.focus === 'function') {
-      this.refs.tagSelectionInput.focus()
+    if (this.tagSelectionInputRef.current && typeof this.tagSelectionInputRef.current.focus === 'function') {
+      this.tagSelectionInputRef.current.focus()
     }
   }
 
@@ -76,7 +80,7 @@ class TagEntityTreeFilterByTags extends Component {
   onTagSelectionClick (ev) {
     // if the tag selection area is directly clicked
     // focus the input
-    if (ev.target === this.refs.tagSelection) {
+    if (ev.target === this.tagSelectionRef.current) {
       this.focus()
     }
   }
@@ -166,7 +170,7 @@ class TagEntityTreeFilterByTags extends Component {
     return (
       <div className={style.searchTagsContainer}>
         <div className={style.searchTagsInputBox}>
-          <div ref='tagSelection' className={style.tagsSelect} onClick={this.onTagSelectionClick}>
+          <div ref={this.tagSelectionRef} className={style.tagsSelect} onClick={this.onTagSelectionClick}>
             <span>
               {selectedTags.map((tag, tagIndex) => {
                 const tagStyles = {
@@ -183,7 +187,7 @@ class TagEntityTreeFilterByTags extends Component {
                 )
               })}
               <input
-                ref='tagSelectionInput'
+                ref={this.tagSelectionInputRef}
                 type='text'
                 placeholder={selectedTags.length === 0 ? 'select a tag' : ''}
                 className={style.searchTags}
@@ -195,7 +199,7 @@ class TagEntityTreeFilterByTags extends Component {
           </div>
         </div>
         <div
-          ref='tagList'
+          ref={this.tagListRef}
           className={style.tagsListContainer}
           style={stylesForTagsList}
         >
