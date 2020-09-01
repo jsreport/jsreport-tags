@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import ReactList from 'react-list'
 import colorLuminance from './colorLuminance'
@@ -223,21 +222,6 @@ class TagEntityTreeFilterByTags extends Component {
 
 TagEntityTreeFilterByTags.defaultProps = {
   onTagSelectChange: () => {}
-}
-
-TagEntityTreeFilterByTags.propTypes = {
-  tags: PropTypes.arrayOf(PropTypes.shape({
-    shortid: PropTypes.string,
-    name: PropTypes.string,
-    color: PropTypes.string
-  })),
-  selectedTags: PropTypes.arrayOf(PropTypes.shape({
-    shortid: PropTypes.string,
-    name: PropTypes.string,
-    color: PropTypes.string
-  })),
-  onTagSelectChange: PropTypes.func,
-  onFilterClose: PropTypes.func
 }
 
 export default TagEntityTreeFilterByTags

@@ -1,9 +1,8 @@
-import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import Studio from 'jsreport-studio'
 import ColorPicketTrigger from './ColorPickerTrigger'
 
-export default class NewTagModal extends Component {
+class NewTagModal extends Component {
   constructor (props) {
     super(props)
 
@@ -126,6 +125,4 @@ export default class NewTagModal extends Component {
   }
 }
 
-NewTagModal.propTypes = {
-  close: PropTypes.func.isRequired
-}
+export default NewTagModal

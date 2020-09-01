@@ -1,8 +1,7 @@
-import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import ShowColor from './ShowColor'
 
-export default class TagEditor extends Component {
+class TagEditor extends Component {
   render () {
     const { entity } = this.props
 
@@ -31,6 +30,4 @@ export default class TagEditor extends Component {
   }
 }
 
-TagEditor.propTypes = {
-  entity: PropTypes.object.isRequired
-}
+export default TagEditor

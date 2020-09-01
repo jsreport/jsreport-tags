@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import React from 'react'
 import { Popover } from 'jsreport-studio'
 import ShowColor from './ShowColor'
@@ -76,22 +75,6 @@ const ColorPicketTrigger = (props) => {
       </Popover>
     </div>
   )
-}
-
-ColorPicketTrigger.propTypes = {
-  displayColorPicker: PropTypes.bool.isRequired,
-  color: PropTypes.string,
-  containerStyles: PropTypes.object,
-  onClickColorTrigger: PropTypes.func,
-  onCloseColorPicker: PropTypes.func.isRequired,
-  onInputChange: PropTypes.func,
-  onChangeSelectionColor: PropTypes.func,
-  // i know.. it is a shame to decide the position of the color picker
-  // in this way, maybe in the future it can be calculated based
-  // on the position of the button trigger
-  // using a "position" prop to specify the direction
-  translateXColorPickerFromTrigger: PropTypes.string,
-  translateYColorPickerFromTrigger: PropTypes.string
 }
 
 export default ColorPicketTrigger

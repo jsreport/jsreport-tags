@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import React from 'react'
 import simpleCheckForValidColor from './simpleCheckForValidColor'
 import colorLuminance from './colorLuminance'
@@ -33,13 +32,6 @@ const ShowColor = (props) => {
       width: width
     }} />
   )
-}
-
-ShowColor.propTypes = {
-  color: PropTypes.string.isRequired,
-  borderColor: PropTypes.string,
-  height: PropTypes.number,
-  width: PropTypes.number
 }
 
 export default ShowColor
